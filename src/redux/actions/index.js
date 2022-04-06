@@ -1,5 +1,5 @@
-import { GET_EMAIL, GET_PASSWORD } from '../reducers/loginReducer';
+import { LOGIN_ACTION } from '../reducers/loginReducer';
+import { TOKEN_ACTION } from '../reducers/tokenReducer';
 
-export const getEmailAction = (value) => ({ type: GET_EMAIL, data: { email: value } });
-export const getPassWordAction = (value) => (
-  { type: GET_PASSWORD, data: { password: value } });
+export const loginAction = (value) => ({ type: LOGIN_ACTION, data: value });
+export const tokenAction = (value) => ({ type: TOKEN_ACTION, data: value });

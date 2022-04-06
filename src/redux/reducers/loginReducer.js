@@ -1,20 +1,24 @@
 const INITIAL_STATE = {
-  email: '',
-  password: '',
-  token: '',
+  player: {
+    name: '',
+    assertions: '',
+    score: 0,
+    gravatarEmail: '',
+  },
+
+  ranking: [
+    { name: '', score: 0, picture: '' },
+  ],
 };
 
-export const GET_EMAIL = 'GET_EMAIL';
-export const GET_PASSWORD = 'GET_PASSWORD';
+export const LOGIN_ACTION = 'LOGIN_ACTION';
 
-const loginReducer = (state = INITIAL_STATE, { type, data }) => {
+const player = (state = INITIAL_STATE, { type, data }) => {
   switch (type) {
-  case GET_EMAIL:
-  case GET_PASSWORD:
-
+  case LOGIN_ACTION:
     return { ...state, ...data };
   default: return state;
   }
 };
 
-export default loginReducer;
+export default player;
