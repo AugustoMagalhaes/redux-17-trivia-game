@@ -4,7 +4,7 @@ const INITIAL_STATE = {
     assertions: '',
     score: 0,
     gravatarEmail: '',
-    picture: '',
+    hashGravatar: '',
   },
 
   ranking: [
@@ -23,7 +23,7 @@ const user = (state = INITIAL_STATE, { type, data }) => {
         ...state.player,
         gravatarEmail: data.gravatarEmail,
         name: data.name,
-        picture: data.picture,
+        hashGravatar: data.hashGravatar,
       } };
   default: return state;
   }

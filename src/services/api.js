@@ -1,7 +1,8 @@
 const fetchPlayAPI = async () => {
   const url = 'https://opentdb.com/api_token.php?command=request';
-  const response = await fetch(url);
-  const result = await response.json();
+  const result = await fetch(url)
+    .then((res) => res.json())
+    .catch((error) => console.log(error.message));
   return result;
 };
 
