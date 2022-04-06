@@ -44,7 +44,7 @@ class Login extends React.Component {
     dispatch(loginAction({
       gravatarEmail: loginLocal,
       name: gravatarObj.name.formatted,
-      picture: gravatarObj.thumbnailUrl,
+      picture: gravatarObj.thumbnail,
     }));
     this.setState({ loading: false });
     console.log(gravatarObj);
