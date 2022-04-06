@@ -4,6 +4,7 @@ const INITIAL_STATE = {
     assertions: '',
     score: 0,
     gravatarEmail: '',
+    picture: '',
   },
 
   ranking: [
@@ -13,12 +14,19 @@ const INITIAL_STATE = {
 
 export const LOGIN_ACTION = 'LOGIN_ACTION';
 
-const player = (state = INITIAL_STATE, { type, data }) => {
+const user = (state = INITIAL_STATE, { type, data }) => {
   switch (type) {
   case LOGIN_ACTION:
-    return { ...state, ...data };
+    return {
+      ...state,
+      player: {
+        ...state.player,
+        gravatarEmail: data.gravatarEmail,
+        name: data.name,
+        picture: data.picture,
+      } };
   default: return state;
   }
 };
 
-export default player;
+export default user;

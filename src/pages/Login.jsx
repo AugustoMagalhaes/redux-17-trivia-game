@@ -1,10 +1,12 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
+import md5 from 'crypto-js/md5';
 import { loginAction, tokenAction } from '../redux/actions';
 import Input from '../components/Input';
 import Button from '../components/Button';
-import fetchPlayAPI from '../Services/fetchPlayAPI';
+import fetchPlayAPI from '../services/fetchPlayAPI';
+import fetchGravatar from '../services/fetchGravatar';
 
 class Login extends React.Component {
   constructor() {
@@ -14,6 +16,7 @@ class Login extends React.Component {
       passwordLocal: '',
       disabled: true,
       modal: false,
+      loading: false,
     };
   }
 
@@ -29,19 +32,28 @@ class Login extends React.Component {
 
   onSubmit = async (e) => {
     e.preventDefault();
-    const { loginLocal, passwordLocal } = this.state;
-    console.log('cheguei aqui');
+    const { loginLocal } = this.state;
     const { history, dispatch } = this.props;
+    this.setState({ loading: true });
     const data = await fetchPlayAPI(); const tokenId = data.token;
     dispatch(tokenAction({ token: tokenId }));
-    dispatch(loginAction({ email: loginLocal, password: passwordLocal }));
     history.push('/game');
+    const hashGravatar = md5(loginLocal).toString();
+    const fetchGravatarResult = await fetchGravatar(hashGravatar);
+    const gravatarObj = fetchGravatarResult.entry[0];
+    dispatch(loginAction({
+      gravatarEmail: loginLocal,
+      name: gravatarObj.name.formatted,
+      picture: gravatarObj.thumbnailUrl,
+    }));
+    this.setState({ loading: false });
+    console.log(gravatarObj);
   }
 
   handleClick = () => this.setState((prev) => ({ modal: !prev.modal }));
 
   render() {
-    const { loginLocal, passwordLocal, disabled, modal } = this.state;
+    const { loginLocal, passwordLocal, disabled, modal, loading } = this.state;
     console.log(this.props);
     return (
       <main>
@@ -50,13 +62,13 @@ class Login extends React.Component {
         </header>
         <form onSubmit={ this.onSubmit }>
           <Input
-            labelName="Nome: "
+            labelName="Email: "
             id="login-name"
             testid="input-player-name"
             type="text"
             name="loginLocal"
             value={ loginLocal }
-            placeholder="Digite seu nome"
+            placeholder="Digite seu email"
             onChange={ this.handleChange }
           />
           <Input
@@ -77,6 +89,7 @@ class Login extends React.Component {
             text="Play"
           />
         </form>
+        {loading && <span>Carregando...</span>}
         <footer>
           <button
             type="button"
@@ -92,7 +105,7 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = (token, { player }) => (token || player);
+const mapStateToProps = (token, { user }) => (token || user);
 
 Login.propTypes = {
   history: propTypes.shape({
