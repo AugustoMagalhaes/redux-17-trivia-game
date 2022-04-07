@@ -40,14 +40,14 @@
   flex-wrap: wrap;
   position: fixed;
 
-} */
+}
 
-/* .sectionPrymary div h2 {
+.sectionPrymary div h2 {
   color: darkcyan;
   font-size: 2rem;
   margin-bottom: 1rem;
 
-} */
+}
 
 .GameBody .sectionPrymary .buttonTime button {
   background-color: rgb(245, 245, 246);
@@ -75,11 +75,9 @@
   max-width: 90%;
 }
 
-/* .GameBody .sectionSecond span {
+.GameBody .sectionSecond span {
   align-items: center;
-
   align-self: center;
-
   border: 1px solid rgb(153, 121, 204);
   margin: 0 auto;
 } */

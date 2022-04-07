@@ -33,12 +33,20 @@
   color: aliceblue;
   text-align: center;
 }
+* .Game .GameBody aside {
+  color: aliceblue;
+  align-items: center;
+  border: 1px solid violet;
+  margin: 0.2rem auto;
+  max-width: 90%;
+}
 * .Game .GameBody span {
   color: aliceblue;
 }
 * .Game .GameBody p {
-  color: aliceblue;
-  background-color: darkcyan;
+  color: darkcyan;
+  background-color: aliceblue;
   border-radius: 0.2rem;
-  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  box-shadow: 1px 1px 1px 1px darkcyan;
+  margin: 0;
 }/*# sourceMappingURL=Game.css.map */
