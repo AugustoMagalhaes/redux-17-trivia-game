@@ -118,14 +118,16 @@ class GameBody extends React.Component {
             )}
           <div className="buttonTime">
             {timerActive && <TimerRedux />}
-            <button
-              data-testid="btn-next"
-              type="button"
-              onClick={ this.nextQuestion }
-            >
-              Next
-
-            </button>
+            {show
+            && (
+              <button
+                data-testid="btn-next"
+                type="button"
+                onClick={ this.nextQuestion }
+              >
+                Next
+              </button>
+            )}
             <button
               type="button"
               onClick={ this.feedback }
