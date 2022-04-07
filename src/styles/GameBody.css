@@ -5,15 +5,6 @@
   --color-roxo-cle: rgb(153, 121, 204);
 }
 
-* {
-
-  /* box-sizing: border-box; */
-  font-family: Verdana , Geneva , Tahoma , sans-serif;
-  margin: 0;
-  outline: none;
-  padding: 0;
-}
-
 .GameBody {
   align-items: center;
   background-color: rgb(245, 245, 246);
@@ -47,7 +38,6 @@
   border: 1px solid rgb(0, 255, 191);
   cursor: pointer;
   flex-wrap: wrap;
-
   position: fixed;
 
 } */
@@ -59,9 +49,8 @@
 
 } */
 
-/* .GameBody .sectionPrymary .buttonTime button {
+.GameBody .sectionPrymary .buttonTime button {
   background-color: rgb(245, 245, 246);
-
   border-radius: 0.2rem;
   box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
   cursor: pointer;
@@ -70,22 +59,21 @@
   margin: 0 auto;
   padding: 0.3rem 0.8rem;
   transition: 0.2s;
-} */
+}
 
-/* .sectionPrymary .buttonTime button:hover {
+.sectionPrymary .buttonTime button:hover {
   background-color: darkcyan;
   box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
   color: rgb(245, 245, 246);
-} */
+}
 
-/* .GameBody .sectionSecond {
+.GameBody .sectionSecond {
   align-items: center;
-
   border: 1px solid violet;
   color: aliceblue;
   margin: 0.2rem auto;
   max-width: 90%;
-} */
+}
 
 /* .GameBody .sectionSecond span {
   align-items: center;
