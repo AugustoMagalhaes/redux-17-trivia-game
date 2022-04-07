@@ -16,6 +16,7 @@ class GameBody extends React.Component {
       questionsReduce: [],
       questionPosition: 0,
       maxPosition: 4,
+      show: false,
     };
   }
 
@@ -39,62 +40,66 @@ class GameBody extends React.Component {
     const { maxPosition, questionPosition } = this.state;
     if (questionPosition < maxPosition) {
       this.setState((prev) => (
-        { questionPosition: prev.questionPosition + 1 }));
+        { questionPosition: prev.questionPosition + 1, show: false }));
     } else {
-      this.setState({ questionPosition: 0 });
+      this.setState({ questionPosition: 0, show: false });
     }
   }
 
-  render() {
-    const { loading, questionPosition, questionsReduce } = this.state;
-    console.log(questionsReduce);
+  setShow = () => { this.setState((prev) => ({ show: !prev.show })); }
 
+  render() {
+    const { loading, questionPosition, questionsReduce, show } = this.state;
     return (
-      <header className="GameBody">
-        <h2>Hello GameBody</h2>
-        <br />
-        { loading
-          ? <Loading />
-          : (
-            <section key={ uuidv4() } id="answer-options">
-              <p>
-                Pergunta:
-                {' '}
-                {questionPosition + 1}
-                /
-                {questionsReduce.length}
-              </p>
-              <p data-testid="question-category">
-                Category:
-                {' '}
-                {questionsReduce[questionPosition]?.category}
-              </p>
-              <p>
-                Difficulty:
-                {' '}
-                {questionsReduce[questionPosition]?.difficulty}
-              </p>
-              <p data-testid="question-text">
-                Question:
-                {' '}
-                {questionsReduce[questionPosition]?.question}
-              </p>
-              <p data-testid="answer-options">
-                Answers:
-                {' '}
-                {questionsReduce[questionPosition]?.answers.map((e, i) => (
-                  <QuestOption
-                    key={ uuidv4() }
-                    body={ e }
-                    isRight={ e === questionsReduce[questionPosition]?.correct_answer }
-                    index={ i }
-                  />
-                ))}
-              </p>
-              <button type="button" onClick={ this.nextQuestion }>Next</button>
-            </section>
-          )}
-      </header>
+      <main className="GameBody">
+        <header>
+          <h2>Hello GameBody</h2>
+          <br />
+          { loading
+            ? <Loading />
+            : (
+              <section key={ uuidv4() } id="answer-options">
+                <p>
+                  {questionPosition}
+                  /
+                  {questionsReduce.length}
+                  {' '}
+                  Pergunta
+                </p>
+                <p data-testid="question-category">
+                  Category:
+                  {' '}
+                  {questionsReduce[questionPosition]?.category}
+                </p>
+                <p>
+                  Difficulty:
+                  {' '}
+                  {questionsReduce[questionPosition]?.difficulty}
+                </p>
+                <p data-testid="question-text">
+                  Question:
+                  {' '}
+                  {questionsReduce[questionPosition]?.question}
+                </p>
+                <p data-testid="answer-options">
+                  Answers:
+                  {' '}
+                  {questionsReduce[questionPosition]?.answers.map((e, i) => (
+                    <QuestOption
+                      key={ uuidv4() }
+                      body={ e }
+                      isRight={ e === questionsReduce[questionPosition]?.correct_answer }
+                      index={ i }
+                      show={ show }
+                      setShow={ this.setShow }
+                    />
+                  ))}
+                </p>
+                <button type="button" onClick={ this.nextQuestion }>Next</button>
+              </section>
+            )}
+        </header>
+      </main>
     );
   }
 }

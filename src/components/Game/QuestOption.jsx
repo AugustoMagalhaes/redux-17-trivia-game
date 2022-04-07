@@ -23,18 +23,20 @@ import './QuestOption.css';
 
 export default class QuestOption extends Component {
   clickHandler = ({ target }) => {
-    // const { fatherUpdates } = this.props;
-    // fatherUpdates();
     target.classList.add('show');
   }
 
   render() {
-    const { body, isRight, index } = this.props;
+    const { body, isRight, index, show, setShow } = this.props;
     return (
       <button
         type="button"
-        className={ isRight ? 'QuestOption right' : 'QuestOption nright' }
-        onClick={ this.clickHandler }
+        onClick={ setShow }
+        className={
+          isRight
+            ? `QuestOption right ${show && 'show'}`
+            : `QuestOption nright ${show && 'show'}`
+        }
         data-testid={
           isRight
             ? 'correct-answer'
@@ -51,6 +53,7 @@ QuestOption.propTypes = {
   isRight: PropTypes.bool,
   body: PropTypes.string.isRequired,
   index: PropTypes.number.isRequired,
+  show: PropTypes.bool.isRequired,
+  setShow: PropTypes.func.isRequired,
 };
-// fatherUpdates: PropTypes.func.isRequired,
 QuestOption.defaultProps = { isRight: false };

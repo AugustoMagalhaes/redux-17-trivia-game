@@ -6,7 +6,6 @@ import '../../styles/GameHeader.css';
 class GameHeader extends React.Component {
   render() {
     const { player } = this.props;
-    console.log(this.props);
     return (
       <header className="GameHeader">
         <span data-testid="header-score">Score: 0</span>
