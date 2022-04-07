@@ -77,7 +77,7 @@
   color: black;
 }
 
-#login-name:after {
+/* #login-name:after {
   content: 'Tudo deu certo';
   display: block;
-}
+} */
