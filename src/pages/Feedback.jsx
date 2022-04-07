@@ -24,6 +24,7 @@ class Feedback extends Component {
     const { name, score, hashGravatar } = this.props;
     const storage = localStorage.getItem('ranking');
     console.log('parse antes ', JSON.parse(storage));
+    console.log('name ', name);
     const checkPlayer = storage && JSON.parse(storage)
       .some((element) => element.name === name);
     console.log('check ', checkPlayer);
