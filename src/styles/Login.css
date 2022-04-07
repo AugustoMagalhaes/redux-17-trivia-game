@@ -1,0 +1,83 @@
+.Login {
+  align-items: center;
+  background: #eaeaea;
+  display: flex;
+  flex-flow: nowrap column;
+  height: 100vh;
+  justify-content: center;
+  row-gap: 15px;
+  width: 100vw;
+}
+
+.Login input::placeholder {
+  transition: 0.1s ease all;
+}
+
+.Login input {
+  background: transparent;
+  border: none;
+  border-bottom: 2px solid black;
+  outline: none;
+  padding: 10px 10px 10px 5px;
+  position: relative;
+  transition: 0.1s linear all;
+}
+
+.Login form, .Login footer {
+  display: flex;
+  flex-flow: nowrap column;
+  row-gap: 15px;
+}
+
+.Login form button, .Login footer button {
+  align-self: center;
+  border: none;
+  justify-self: center;
+  outline: none;
+  padding: 10px;
+  transition: 0.4s ease all;
+  width: 150px;
+}
+
+.Login footer button {
+  background: transparent;
+  border: 1px solid #42a5f5;
+  cursor: pointer;
+}
+
+.Login form button:disabled {
+  background: rgba(127, 127, 127, 0.3);
+}
+
+.Login form button:enabled {
+  background: #42a5f5;
+  color: white;
+  cursor: pointer;
+  font-size: 13px;
+}
+
+.Login footer button:hover {
+  background: #80d6ff;
+  border: solid 1px white;
+}
+
+.Login form button:hover:enabled {
+  background: #0077c1;
+}
+
+.Login input:focus::placeholder {
+  transform: translateY(-15px) translateX(-17%) scale(0.7);
+}
+
+.Login input:focus {
+  border-bottom: 2px solid #42a5f5;
+}
+
+.Login input:focus:not( :placeholder-shown ) {
+  color: black;
+}
+
+#login-name:after {
+  content: 'Tudo deu certo';
+  display: block;
+}

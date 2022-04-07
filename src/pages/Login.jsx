@@ -5,7 +5,8 @@ import md5 from 'crypto-js/md5';
 import { loginAction, tokenAction } from '../redux/actions';
 import Input from '../components/Input';
 import Button from '../components/Button';
-import fetchPlayAPI from '../services/api';
+import { fetchPlayAPI } from '../services/api';
+import '../styles/Login.css';
 
 class Login extends React.Component {
   constructor() {
@@ -19,24 +20,34 @@ class Login extends React.Component {
     };
   }
 
+  // NOTE atualiza os estados da classe
   handleChange = ({ target }) => {
     this.setState({ [target.name]: target.value }, () => this.validateForm());
   }
 
+  // NOTE Validação do formulário de login
   validateForm = () => {
     const { loginLocal, nomeLocal } = this.state;
     const boolDisabled = !(loginLocal && nomeLocal);
     this.setState({ disabled: boolDisabled });
   }
 
+  // NOTE ação a ser executada quando o botão de submit em login é clicado
   onSubmit = async (e) => {
     e.preventDefault();
     const { loginLocal, nomeLocal } = this.state;
     const { history, dispatch } = this.props;
     this.setState({ loading: true });
+
+    // NOTE recupera um token para o login do usuário
     const data = await fetchPlayAPI(); const tokenId = data.token;
+
+    // NOTE dispara a ação de salvar o token como estado global
     dispatch(tokenAction({ token: tokenId }));
+
+    // NOTE redireciona a página para o componente de game
     history.push('/game');
+
     const hashGravatar = md5(loginLocal).toString();
     dispatch(loginAction({
       gravatarEmail: loginLocal,
@@ -46,19 +57,20 @@ class Login extends React.Component {
     this.setState({ loading: false });
   }
 
+  // NOTE handler do clique no botão de configurações do jogo
   handleClick = () => this.setState((prev) => ({ modal: !prev.modal }));
 
   render() {
     const { loginLocal, nomeLocal, disabled, modal, loading } = this.state;
     console.log(this.props);
     return (
-      <main>
+      <main className="Login">
         <header>
           <h1>Login</h1>
         </header>
         <form onSubmit={ this.onSubmit }>
           <Input
-            labelName="Nome: "
+            labelName="Nome"
             testid="input-player-name"
             id="login-name"
             type="text"
@@ -68,7 +80,7 @@ class Login extends React.Component {
             onChange={ this.handleChange }
           />
           <Input
-            labelName="Email: "
+            labelName="Email"
             id="login-email"
             testid="input-gravatar-email"
             type="text"
@@ -92,7 +104,7 @@ class Login extends React.Component {
             data-testid="btn-settings"
             onClick={ this.handleClick }
           >
-            Configurações do jogo
+            Configurações
           </button>
           {modal && <h1 data-testid="settings-title">Hello Modal!</h1>}
         </footer>

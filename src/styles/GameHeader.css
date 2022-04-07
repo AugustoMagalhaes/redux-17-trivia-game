@@ -1,0 +1,64 @@
+* {
+  box-sizing: border-box;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.GameHeader {
+  align-items: center;
+  background-color: darkcyan;
+  border-radius: 0 0 0.3rem 0.3rem;
+  box-shadow: 0.4rem 0.2rem 0.8rem rgb(3, 3, 3);
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  margin: 0 auto 1rem;
+  padding: 0.3rem;
+}
+
+.GameHeader span {
+  color: aliceblue;
+
+  /* font-weight: bold; */
+}
+
+.GameHeader section {
+  background-color: darkcyan;
+  flex-direction: column;
+}
+
+.GameHeader h2 {
+  color: rgb(253, 254, 255);
+}
+
+.GameHeader section img {
+  border-radius: 2rem;
+  height: 40px;
+  margin: 0.3rem 0 0;
+  width: 40px;
+}
+
+.GameHeader section div {
+  align-items: center;
+  align-self: center;
+  display: flex;
+  flex-direction: row;
+  padding: 0.2rem;
+}
+
+.GameHeader .containerPerfil h4 {
+  background-color: darkcyan;
+  color: rgb(253, 254, 255);
+  font-size: 1.3rem;
+
+}
+
+.GameHeader .containerPerfil span {
+  background-color: darkcyan;
+  color: aliceblue;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+
+}
+

@@ -1,0 +1,19 @@
+/*
+Utilize a propriedade css border com o valor 3px solid rgb(6, 240, 15)
+para a alternativa correta.
+Utilize a propriedade css border com o valor 3px solid rgb(255, 0, 0)
+para as alternativas incorretas.
+*/
+
+.QuestOption.right, .QuestOption.nright {
+  background: transparent;
+  padding: 10px;
+}
+
+.QuestOption.nright.show {
+  border: 3px solid red;
+}
+
+.QuestOption.right.show {
+  border: 3px solid rgb(6, 240, 15);
+}

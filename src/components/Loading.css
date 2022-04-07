@@ -1,0 +1,47 @@
+.loader-wrapper {
+  background-color: rgb(219, 225, 230);
+  display: none;
+  flex-flow: row nowrap;
+  height: 100%;
+  justify-content: center;
+  left: 0;
+  opacity: 0.7;
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+}
+
+.loader-container {
+  display: flex;
+  flex-flow: column nowrap;
+  left: 40%;
+  position: fixed;
+  top: 40%;
+  z-index: 101;
+}
+
+.loader {
+  align-self: center;
+  animation: spin 2s linear infinite;
+  border: 16px solid rgb(246, 246, 246);
+  border-radius: 50%;
+  border-top: 16px solid rgb(10, 118, 79);
+  height: 120px;
+  width: 120px;
+}
+
+.loading {
+  color: rgb(10, 118, 79);
+  font-size: 30px;
+  font-weight: 900;
+  margin-top: 10px;
+}
+
+@keyframes spin {
+
+  0% { transform: rotate(0deg); }
+
+  /* fonte do loader: https://www.w3schools.com/howto/howto_css_loader.asp */
+  100% { transform: rotate(360deg); }
+}
