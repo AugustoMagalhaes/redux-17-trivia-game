@@ -5,9 +5,31 @@ Utilize a propriedade css border com o valor 3px solid rgb(255, 0, 0)
 para as alternativas incorretas.
 */
 
-.QuestOption.right, .QuestOption.nright {
-  background: transparent;
+
+/* .QuestOption.right, .QuestOption.nright {
+
+  background: rgba(66, 165, 245, 0.5);
+
+  border: 1px solid darkcyan;
+  border-radius: 0.3rem;
+  clip-path: polygon
+    (30% 0% , 70% 0% , 100% 30% , 100% 70% , 70% 100% , 30% 100% , 0% 70% , 0% 30%);
+  height: 100px;
+  margin: 0.1rem;
   padding: 10px;
+  width: 100px;
+} */
+
+.QuestOption.right:before, .QuestOption.nright:before {
+
+  /* border: 2px solid #42a5f5; */
+  clip-path: polygon
+    (30% 0% , 70% 0% , 100% 30% , 100% 70% , 70% 100% , 30% 100% , 0% 70% , 0% 30%);
+  content: '';
+  display: block;
+
+  /* height: 150px;
+  width: 150px; */
 }
 
 .QuestOption.nright.show {

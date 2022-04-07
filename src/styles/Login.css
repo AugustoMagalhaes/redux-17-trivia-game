@@ -9,20 +9,6 @@
   width: 100vw;
 }
 
-.Login input::placeholder {
-  transition: 0.1s ease all;
-}
-
-.Login input {
-  background: transparent;
-  border: none;
-  border-bottom: 2px solid black;
-  outline: none;
-  padding: 10px 10px 10px 5px;
-  position: relative;
-  transition: 0.1s linear all;
-}
-
 .Login form, .Login footer {
   display: flex;
   flex-flow: nowrap column;
@@ -63,18 +49,6 @@
 
 .Login form button:hover:enabled {
   background: #0077c1;
-}
-
-.Login input:focus::placeholder {
-  transform: translateY(-15px) translateX(-17%) scale(0.7);
-}
-
-.Login input:focus {
-  border-bottom: 2px solid #42a5f5;
-}
-
-.Login input:focus:not( :placeholder-shown ) {
-  color: black;
 }
 
 /* #login-name:after {

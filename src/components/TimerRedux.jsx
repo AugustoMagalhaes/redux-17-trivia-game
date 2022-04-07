@@ -1,56 +1,44 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
-import { timerAction } from '../redux/actions/index';
+import { timerAction, countAction } from '../redux/actions/index';
 
 class Timer extends Component {
-  constructor() {
-    super();
-    this.state = {
-      seconds: 30,
-      timerID: 0,
-    };
-  }
-
   componentDidMount() {
-    const milliseconds = 1000;
-    const timerID = setInterval(() => {
+    const { dispatch } = this.props;
+    const ONE_SECOND = 1000;
+    const tID = setInterval(() => {
+      dispatch(timerAction({ timerID: tID }));
       this.displayTimer();
-      this.setState({ timerID });
-    }, milliseconds);
+    }, ONE_SECOND);
   }
 
   displayTimer() {
-    const { seconds, timerID } = this.state;
-    const { dispatch, resetTimer } = this.props;
-    if (resetTimer) {
-      this.setState({ seconds: 31 },
-        () => dispatch(timerAction({ timerActive: true, resetTimer: false })));
+    const { timerID } = this.props;
+    const { dispatch, countdown } = this.props;
+    if (countdown > 0) {
+      dispatch(countAction(countdown - 1));
     }
-    if (seconds > 1) {
-      this.setState((prevState) => ({
-        seconds: prevState.seconds - 1,
-      }));
-    } else {
-      this.setState({ seconds: 30 },
-        () => dispatch(timerAction(
-          { resetTimer: true, show: true, timerActive: false },
-        )));
+    if (countdown === 1) {
+      dispatch(timerAction(
+        { show: true, timerActive: false, countdown: 30 },
+      ));
       clearInterval(timerID);
     }
   }
 
   render() {
-    const { seconds } = this.state;
+    const { countdown } = this.props;
     return (
-      <h2>{ seconds }</h2>
+      <h2>{ countdown }</h2>
     );
   }
 }
 
 Timer.propTypes = {
+  timerID: propTypes.number.isRequired,
   dispatch: propTypes.func.isRequired,
-  resetTimer: propTypes.bool.isRequired,
+  countdown: propTypes.number.isRequired,
 };
 
 const mapStateToProps = ({ timer }) => (timer);

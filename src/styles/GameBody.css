@@ -1,5 +1,13 @@
+:root {
+
+  --color-aliceblue: aliceblue;
+
+  --color-roxo-cle: rgb(153, 121, 204);
+}
+
 * {
-  box-sizing: border-box;
+
+  /* box-sizing: border-box; */
   font-family: Verdana , Geneva , Tahoma , sans-serif;
   margin: 0;
   outline: none;
@@ -7,88 +15,114 @@
 }
 
 .GameBody {
+  align-items: center;
   background-color: rgb(245, 245, 246);
   border-radius: 0.8rem;
-  box-shadow: 0.2rem 0.3rem 0.3rem 0.3rem rgb(39, 39, 39);
+  box-shadow: 0.2rem 0.3rem 0.8rem 0.2rem rgb(39, 39, 39);
   display: flex;
-  flex-direction: column;
-  height: 450px;
+  height: 100%;
   justify-content: center;
-  margin: 2rem auto;
-  width: 450px;
+  margin: 3rem auto;
+  padding: 1rem;
+  width: 500px;
 }
 
-.GameBody section {
-  border: 1px solid rgb(51, 153, 65);
+.GameBody .sectionSecond div {
+  align-items: center;
+
+  /* border: 1px solid rgb(238, 255, 0); */
   display: flex;
-  flex-wrap: wrap;
   justify-content: center;
+  margin: 0 auto;
   max-height: 90%;
-  padding: 0.8rem;
+
+  /* position: fixed; */
 
 }
 
-.sectionPrymary h2 {
+/* REVIEW Thiago Comentou */
+
+/* .GameBody .sectionSecond div button {
+  align-items: center;
+  border: 1px solid rgb(0, 255, 191);
+  cursor: pointer;
+  flex-wrap: wrap;
+
+  position: fixed;
+
+} */
+
+/* .sectionPrymary div h2 {
   color: darkcyan;
   font-size: 2rem;
-  margin-bottom: 1.8rem;
+  margin-bottom: 1rem;
 
-}
+} */
 
-.sectionPrymary .buttonTime button {
+/* .GameBody .sectionPrymary .buttonTime button {
   background-color: rgb(245, 245, 246);
-  border: 1px solid darkcyan;
-  border-radius: 0.1rem 0.5rem;
+
+  border-radius: 0.2rem;
   box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  cursor: pointer;
+  flex-wrap: wrap;
   font-size: 1rem;
-  margin-left: 0.6rem;
+  margin: 0 auto;
   padding: 0.3rem 0.8rem;
   transition: 0.2s;
-}
+} */
 
-.sectionPrymary .buttonTime button:hover {
+/* .sectionPrymary .buttonTime button:hover {
   background-color: darkcyan;
   box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
   color: rgb(245, 245, 246);
-}
+} */
 
-.GameBody .sectionSecond {
-  border: 1px solid violet;
-}
-
-.GameBody .sectionSecond span {
-  align-self: center;
-  border: 1px solid rgb(153, 121, 204);
-}
-
-.sectionSecond p {
+/* .GameBody .sectionSecond {
   align-items: center;
-  border: 1px solid rgb(226, 22, 32);
-  border-radius: 0.2rem;
-  display: flex;
-  margin: 0.2rem 0.2rem 0.3rem;
+
+  border: 1px solid violet;
+  color: aliceblue;
+  margin: 0.2rem auto;
+  max-width: 90%;
+} */
+
+/* .GameBody .sectionSecond span {
+  align-items: center;
+
+  align-self: center;
+
+  border: 1px solid rgb(153, 121, 204);
+  margin: 0 auto;
+} */
+
+/* .GameBody .sectionSecond p {
+  color: var(--color-aliceblue);
+  margin: 0.2rem auto;
   max-width: 80%;
+  opacity: 0.8;
   padding: 0.2rem;
-}
+} */
 
-.sectionSecond aside {
+/* .sectionSecond aside {
 
-  /* background-color: darkcyan; */
+  border: 1px solid #1b1b1b;
   border-radius: 0.3rem;
   box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
   font-weight: 700;
-  margin: 0.5rem 0 0.8rem;
+  margin: 0.5rem auto 0.8rem;
   max-width: 95%;
   opacity: 0.9;
-  padding: 0.5rem;
-}
+  padding: 0.8rem;
+} */
 
 
 /* .GameBody .sectionSecond span {
   bottom: 120px;
   color: rebeccapurple;
   left: 80px;
-  position: fixed;
+  position: absolute;
+
 }
 
 
@@ -98,6 +132,6 @@
     bottom: 120px;
     color: rebeccapurple;
     left: 80px;
-    position: fixed;
+    position: absolute;
   }
 } */

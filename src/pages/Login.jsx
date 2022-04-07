@@ -2,7 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import md5 from 'crypto-js/md5';
-import { loginAction, tokenAction } from '../redux/actions';
+import { loginAction, tokenAction, timerAction } from '../redux/actions';
 import Input from '../components/Input';
 import Button from '../components/Button';
 import { fetchPlayAPI } from '../services/api';
@@ -19,6 +19,13 @@ class Login extends React.Component {
       modal: false,
       loading: false,
     };
+  }
+
+  componentDidMount() {
+    const { dispatch } = this.props;
+    dispatch(timerAction(
+      { show: false, timerActive: true, countdown: 30 },
+    ));
   }
 
   // NOTE atualiza os estados da classe
@@ -63,13 +70,12 @@ class Login extends React.Component {
 
   render() {
     const { loginLocal, nomeLocal, disabled, modal, loading } = this.state;
-    console.log(this.props);
     return (
       <main className="Login">
         <header>
           <h1>Login</h1>
         </header>
-        <form onSubmit={ this.onSubmit }>
+        <form onSubmit={ this.onSubmit } autoComplete="off">
           <Input
             labelName="Nome"
             testid="input-player-name"

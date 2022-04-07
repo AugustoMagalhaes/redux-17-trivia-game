@@ -1,0 +1,63 @@
+.InputLabel {align-items: flex-end;
+
+  /* background-color: green */
+  border-bottom: 2px solid #1b1b1b;
+  column-gap: 5px;
+  display: flex;
+  flex-flow: row nowrap;
+}
+
+.InputLabel-text {
+  bottom: 7px;
+  color: #1b1b1b;
+  order: 2;
+  pointer-events: none;
+  right: 0%;
+}
+
+.InputLabel-input {
+  background: transparent;
+  border: none;
+  outline: none;
+  padding: 10px 10px 10px 5px;
+  padding-right: 30%;
+  width: 75%;
+}
+
+.InputLabel-input::placeholder {
+  transition: 0.1s ease all;
+}
+
+.InputLabel-input:focus::placeholder {
+  transform: translateY(-15px) translateX(-17%) scale(0.7);
+}
+
+/* .InputLabel-input:focus {
+  animation: inputBar 100ms linear normal;
+
+  border-bottom: 2px solid tran;
+} */
+
+.InputLabel-input:focus > .InputLabel {
+  animation: inputBar 100ms linear normal;
+  border-bottom: 2px solid #42a5f5;
+}
+
+.InputLabel-input:focus:not( :placeholder-shown ) {
+  color: #0077c1;
+}
+
+.InputLabel-input:not( :placeholder-shown ) ~ .InputLabel-text {
+  color: #0077c1;
+}
+
+@keyframes inputBar {
+
+  from {
+    transform: scaleX(0);
+  }
+
+  to {
+    transform: scaleX(1);
+  }
+}

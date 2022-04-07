@@ -7,7 +7,7 @@ import Loading from '../Loading';
 import { fetchQuestionAPI } from '../../services/api';
 import QuestOption from './QuestOption';
 import TimerRedux from '../TimerRedux';
-import { timerAction } from '../../redux/actions/index';
+import { timerAction, scoreAction } from '../../redux/actions/index';
 import '../../styles/GameBody.css';
 // GRUPO 10 É O MELHOR
 class GameBody extends React.Component {
@@ -49,16 +49,36 @@ class GameBody extends React.Component {
     if (questionPosition < maxPosition) {
       this.setState((prev) => (
         { questionPosition: prev.questionPosition + 1 }));
-      dispatch(timerAction({ timerActive: true, resetTimer: true, show: false }));
+      dispatch(timerAction({ timerActive: true, countdown: 30, show: false }));
     } else {
       dispatch(timerAction({ timerActive: false }));
       console.log('elseNextQuestion');
     }
   }
 
-  setShow = () => {
-    const { dispatch, show } = this.props;
-    dispatch(timerAction({ show: !show, timerActive: false }));
+  setShow = ({ target: { dataset: { testid, difficulty } } }) => {
+    const {
+      dispatch, show, timer: { timerID, countdown },
+      user: { player: { score, assertions } },
+    } = this.props;
+    const TEN = 10;
+    const THREE = 3;
+    if (testid === 'correct-answer') {
+      if (difficulty === 'easy') {
+        dispatch(scoreAction({
+          score: score + TEN + (countdown), assertions: assertions + 1 }));
+      }
+      if (difficulty === 'medium') {
+        dispatch(scoreAction({
+          score: score + TEN + (countdown * 2), assertions: assertions + 1 }));
+      }
+      if (difficulty === 'hard') {
+        dispatch(scoreAction({
+          score: score + TEN + (countdown * THREE), assertions: assertions + 1 }));
+      }
+    }
+    clearInterval(timerID);
+    dispatch(timerAction({ show: !show, timerActive: false, countdown: 30 }));
   }
 
   feedback = () => {
@@ -69,11 +89,13 @@ class GameBody extends React.Component {
   render() {
     const { loading, questionPosition, questionsReduce } = this.state;
     const { timer: { timerActive, show } } = this.props;
+
     return (
       <main className="GameBody">
         <section className="sectionPrymary">
-          <h2>Game Go</h2>
-          <br />
+          <div>
+            <h2>Game Go</h2>
+          </div>
           { loading
             ? <Loading />
             : (
@@ -83,7 +105,7 @@ class GameBody extends React.Component {
                   /
                   {questionsReduce.length}
                   {' '}
-                  Pergunta
+                  Question
                 </span>
                 <p data-testid="question-category">
                   Category:
@@ -111,6 +133,7 @@ class GameBody extends React.Component {
                       index={ i }
                       show={ show }
                       setShow={ this.setShow }
+                      difficulty={ questionsReduce[questionPosition]?.difficulty }
                     />
                   ))}
                 </div>
@@ -119,22 +142,27 @@ class GameBody extends React.Component {
           <div className="buttonTime">
             {timerActive && <TimerRedux />}
 
-            <button
-              data-testid="btn-next"
-              type="button"
-              style={ { display: show ? 'block' : 'none' } }
-              onClick={ this.nextQuestion }
-            >
-              Next
-            </button>
-
-            <button
-              type="button"
-              onClick={ this.feedback }
-            >
-              Feedback
-
-            </button>
+            {questionPosition + 1 < questionsReduce.length
+              ? (
+                <button
+                  data-testid="btn-next"
+                  type="button"
+                  style={ { display: show ? 'block' : 'none' } }
+                  onClick={ this.nextQuestion }
+                >
+                  Next
+                </button>
+              )
+              : (
+                <button
+                  data-testid="btn-next"
+                  type="button"
+                  style={ { display: show ? 'block' : 'none' } }
+                  onClick={ this.feedback }
+                >
+                  Results
+                </button>
+              )}
           </div>
         </section>
       </main>
@@ -151,9 +179,16 @@ GameBody.propTypes = {
     timerID: propTypes.number,
     timerActive: propTypes.bool,
     show: propTypes.bool,
+    countdown: propTypes.number,
   }),
   history: propTypes.shape({ push: propTypes.func }).isRequired,
   dispatch: propTypes.func.isRequired,
+  user: propTypes.shape({
+    player: propTypes.shape({
+      score: propTypes.number,
+      assertions: propTypes.number,
+    }),
+  }).isRequired,
 };
 
 GameBody.defaultProps = {

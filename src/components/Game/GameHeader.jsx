@@ -5,15 +5,17 @@ import '../../styles/GameHeader.css';
 
 class GameHeader extends React.Component {
   render() {
-    const { player } = this.props;
+    const { player: { score, name, hashGravatar } } = this.props;
     return (
       <header className="GameHeader">
-        <span data-testid="header-score">Score: 0</span>
+        <span data-testid="header-score">
+          {score}
+        </span>
         <h2>Trivia</h2>
         <section>
           <img
             data-testid="header-profile-picture"
-            src={ `https://www.gravatar.com/avatar/${player.hashGravatar}` }
+            src={ `https://www.gravatar.com/avatar/${hashGravatar}` }
             alt="gravatar"
           />
           <div className="containerPerfil">
@@ -22,7 +24,7 @@ class GameHeader extends React.Component {
             {' '}
             <span data-testid="header-player-name">
               {' '}
-              {player.name}
+              {name}
             </span>
             {' '}
           </div>
@@ -38,8 +40,7 @@ const mapStateToProps = ({ user }) => (user);
 GameHeader.propTypes = {
   player: propTypes.shape({ name: propTypes.string,
     hashGravatar: propTypes.string,
-  }).isRequired,
-
+    score: propTypes.number }).isRequired,
 };
 
 export default connect(mapStateToProps)(GameHeader);

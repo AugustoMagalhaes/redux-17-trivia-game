@@ -1,0 +1,44 @@
+* {
+  box-sizing: border-box;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  margin: 0;
+  padding: 0;
+}
+* .Game {
+  display: flex;
+  justify-content: center;
+  border: 1px solid #000;
+  align-items: center;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(68, 68, 253);
+}
+* .Game .GameHeader {
+  border: 1px solid red;
+  height: 500px;
+  width: 300px;
+}
+* .Game .GameHeader h2 {
+  color: aliceblue;
+}
+* .Game .GameHeader .GameHeader-score {
+  font-size: 1.5em;
+  font-weight: bold;
+}
+* .Game .GameBody {
+  background-color: rgba(0, 0, 0, 0.9);
+  height: 500px;
+}
+* .Game .GameBody h2 {
+  color: aliceblue;
+  text-align: center;
+}
+* .Game .GameBody span {
+  color: aliceblue;
+}
+* .Game .GameBody p {
+  color: aliceblue;
+  background-color: darkcyan;
+  border-radius: 0.2rem;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+}/*# sourceMappingURL=Game.css.map */

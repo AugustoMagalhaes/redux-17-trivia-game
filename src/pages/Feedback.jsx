@@ -5,6 +5,11 @@ import { withRouter } from 'react-router-dom';
 
 class Feedback extends Component {
   //
+
+  componentDidMount() {
+    this.generateLocalStorage();
+  }
+
   playAgain = () => {
     const { history } = this.props;
     history.push('/');
@@ -13,6 +18,40 @@ class Feedback extends Component {
   routeToRanking = () => {
     const { history } = this.props;
     history.push('/ranking');
+  }
+
+  generateLocalStorage = () => {
+    const { name, score, hashGravatar } = this.props;
+    const storage = localStorage.getItem('ranking');
+    console.log('parse antes ', JSON.parse(storage));
+    const checkPlayer = storage && JSON.parse(storage)
+      .some((element) => element.name === name);
+    console.log('check ', checkPlayer);
+    if (!checkPlayer) {
+      const picture = `https://www.gravatar.com/avatar/${hashGravatar}`;
+      const rankingObj = {
+        name,
+        score,
+        picture,
+      };
+      const parsedStoragezin = storage && JSON.parse(storage);
+      const rankingList = parsedStoragezin
+        ? [...parsedStoragezin, rankingObj] : [rankingObj];
+      const stringifiedRanking = JSON.stringify(rankingList);
+      console.log('rankingList ', stringifiedRanking);
+      localStorage.setItem('ranking', stringifiedRanking);
+    } else {
+      const getStorage = localStorage.getItem('ranking');
+      const oldStorage = JSON.parse(getStorage);
+      const findPlayer = name && oldStorage?.find((element) => element.name === name);
+      console.log('name', name);
+      console.log('oldS ', oldStorage);
+      console.log('findPlayer ', findPlayer);
+      findPlayer.score += score;
+      console.log('olS dps', oldStorage);
+      const stringifiedNewRanking = JSON.stringify(oldStorage);
+      localStorage.setItem('ranking', stringifiedNewRanking);
+    }
   }
 
   render() {
@@ -49,18 +88,25 @@ class Feedback extends Component {
               score >= standardComparisor ? 'Well Done!' : 'Could be better...'
             }
           </p>
-          <button type="button" onClick={ this.playAgain }>Jogar novamente</button>
+          <button
+            data-testid="btn-play-again"
+            type="button"
+            onClick={ this.playAgain }
+          >
+            Jogar novamente
+
+          </button>
         </header>
         <main>
           <h4>Informações finais</h4>
           <section>
             <section>
               Placar final:
-              <p data-testid="feedback-total-score">{parsedData.finalScore}</p>
+              <p data-testid="feedback-total-score">{parsedData?.finalScore}</p>
             </section>
             <section>
               Número de perguntas respondidas:
-              <p data-testid="feedback-total-question">{parsedData.finalAssertions}</p>
+              <p data-testid="feedback-total-question">{parsedData?.finalAssertions}</p>
             </section>
             <button
               type="button"
