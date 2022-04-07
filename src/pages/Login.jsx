@@ -7,6 +7,7 @@ import Input from '../components/Input';
 import Button from '../components/Button';
 import { fetchPlayAPI } from '../services/api';
 import '../styles/Login.css';
+import Loading from '../components/Loading';
 
 class Login extends React.Component {
   constructor() {
@@ -97,7 +98,7 @@ class Login extends React.Component {
             text="Play"
           />
         </form>
-        {loading && <span>Carregando...</span>}
+        {loading && <Loading />}
         <footer>
           <button
             type="button"
@@ -113,7 +114,7 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = (token, { user }) => (token || user);
+const mapStateToProps = ({ user }) => (user);
 
 Login.propTypes = {
   history: propTypes.shape({

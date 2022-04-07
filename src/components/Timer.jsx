@@ -4,7 +4,7 @@ class Timer extends Component {
   constructor(props) {
     super(props);
     this.state = {
-      seconds: 30,
+      seconds: 5,
       timerID: 0,
     };
   }
@@ -13,25 +13,19 @@ class Timer extends Component {
     const milliseconds = 1000;
     const timerID = setInterval(() => {
       this.displayTimer();
+      this.setState({ timerID });
     }, milliseconds);
-    this.setState({ timerID });
   }
-
-  // componentWillUnmount() {
-  //   clearInterval(this.state.timerID);
-  //   console.log('limpou');
-  // }
 
   displayTimer() {
     const { seconds, timerID } = this.state;
-    console.log();
-    if (seconds > 0) {
+
+    if (seconds > 1) {
       this.setState((prevState) => ({
         seconds: prevState.seconds - 1,
       }));
-    } if (seconds === 0) {
-      this.setState({ seconds: 'TIME OUT' });
     } else {
+      this.setState({ seconds: 5 });
       clearInterval(timerID);
     }
   }

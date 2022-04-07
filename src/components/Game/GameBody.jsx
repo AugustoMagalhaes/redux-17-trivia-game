@@ -2,9 +2,12 @@ import React from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { v4 as uuidv4 } from 'uuid';
+import { withRouter } from 'react-router-dom';
 import Loading from '../Loading';
 import { fetchQuestionAPI } from '../../services/api';
 import QuestOption from './QuestOption';
+import TimerRedux from '../TimerRedux';
+import { timerAction } from '../../redux/actions/index';
 import '../../styles/GameBody.css';
 // GRUPO 10 É O MELHOR
 class GameBody extends React.Component {
@@ -16,7 +19,6 @@ class GameBody extends React.Component {
       questionsReduce: [],
       questionPosition: 0,
       maxPosition: 4,
-      show: false,
     };
   }
 
@@ -36,36 +38,53 @@ class GameBody extends React.Component {
     });
   }
 
+  componentWillUnmount() {
+    const { timer: { timerID } } = this.props;
+    clearInterval(timerID);
+  }
+
   nextQuestion = () => {
     const { maxPosition, questionPosition } = this.state;
+    const { dispatch } = this.props;
     if (questionPosition < maxPosition) {
       this.setState((prev) => (
-        { questionPosition: prev.questionPosition + 1, show: false }));
+        { questionPosition: prev.questionPosition + 1 }));
+      dispatch(timerAction({ timerActive: true, resetTimer: true, show: false }));
     } else {
-      this.setState({ questionPosition: 0, show: false });
+      dispatch(timerAction({ timerActive: false }));
+      console.log('elseNextQuestion');
     }
   }
 
-  setShow = () => { this.setState((prev) => ({ show: !prev.show })); }
+  setShow = () => {
+    const { dispatch, show } = this.props;
+    dispatch(timerAction({ show: !show, timerActive: false }));
+  }
+
+  feedback = () => {
+    const { history } = this.props;
+    history.push('feedback');
+  }
 
   render() {
-    const { loading, questionPosition, questionsReduce, show } = this.state;
+    const { loading, questionPosition, questionsReduce } = this.state;
+    const { timer: { timerActive, show } } = this.props;
     return (
       <main className="GameBody">
-        <header>
-          <h2>Hello GameBody</h2>
+        <section className="sectionPrymary">
+          <h2>Game Go</h2>
           <br />
           { loading
             ? <Loading />
             : (
-              <section key={ uuidv4() } id="answer-options">
-                <p>
-                  {questionPosition}
+              <section key={ uuidv4() } id="answer-options" className="sectionSecond">
+                <span>
+                  {questionPosition + 1}
                   /
                   {questionsReduce.length}
                   {' '}
                   Pergunta
-                </p>
+                </span>
                 <p data-testid="question-category">
                   Category:
                   {' '}
@@ -76,12 +95,12 @@ class GameBody extends React.Component {
                   {' '}
                   {questionsReduce[questionPosition]?.difficulty}
                 </p>
-                <p data-testid="question-text">
+                <aside data-testid="question-text">
                   Question:
                   {' '}
                   {questionsReduce[questionPosition]?.question}
-                </p>
-                <p data-testid="answer-options">
+                </aside>
+                <div data-testid="answer-options">
                   Answers:
                   {' '}
                   {questionsReduce[questionPosition]?.answers.map((e, i) => (
@@ -94,11 +113,28 @@ class GameBody extends React.Component {
                       setShow={ this.setShow }
                     />
                   ))}
-                </p>
-                <button type="button" onClick={ this.nextQuestion }>Next</button>
+                </div>
               </section>
             )}
-        </header>
+          <div className="buttonTime">
+            {timerActive && <TimerRedux />}
+            <button
+              data-testid="btn-next"
+              type="button"
+              onClick={ this.nextQuestion }
+            >
+              Next
+
+            </button>
+            <button
+              type="button"
+              onClick={ this.feedback }
+            >
+              Feedback
+
+            </button>
+          </div>
+        </section>
       </main>
     );
   }
@@ -108,6 +144,19 @@ const mapStateToProps = (state) => (state);
 
 GameBody.propTypes = {
   token: propTypes.string.isRequired,
+  show: propTypes.bool,
+  timer: propTypes.shape({
+    timerID: propTypes.number,
+    timerActive: propTypes.bool,
+    show: propTypes.bool,
+  }),
+  history: propTypes.shape({ push: propTypes.func }).isRequired,
+  dispatch: propTypes.func.isRequired,
 };
 
-export default connect(mapStateToProps)(GameBody);
+GameBody.defaultProps = {
+  timer: {},
+  show: false,
+};
+
+export default withRouter(connect(mapStateToProps)(GameBody));

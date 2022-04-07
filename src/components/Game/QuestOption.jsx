@@ -22,16 +22,13 @@ import PropTypes from 'prop-types';
 import './QuestOption.css';
 
 export default class QuestOption extends Component {
-  clickHandler = ({ target }) => {
-    target.classList.add('show');
-  }
-
   render() {
     const { body, isRight, index, show, setShow } = this.props;
     return (
       <button
         type="button"
         onClick={ setShow }
+        disabled={ show }
         className={
           isRight
             ? `QuestOption right ${show && 'show'}`

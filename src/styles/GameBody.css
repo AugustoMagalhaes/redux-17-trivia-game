@@ -1,22 +1,107 @@
 * {
+  box-sizing: border-box;
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
   margin: 0;
+  outline: none;
   padding: 0;
 }
 
 .GameBody {
-  align-content: center;
-  border: 1px solid rebeccapurple;
-  box-shadow: 0.4rem 0.3rem 0.8rem rgb(3, 3, 3);
+  background-color: rgb(245, 245, 246);
+  border-radius: 0.8rem;
+  box-shadow: 0.2rem 0.3rem 0.3rem 0.3rem rgb(39, 39, 39);
   display: flex;
   flex-direction: column;
-  height: 400px;
-  justify-content: space-around;
-  max-width: 480px;
-  padding: 0.5rem;
+  height: 450px;
+  justify-content: center;
+  margin: 2rem auto;
+  width: 450px;
 }
 
-.GameBody h2 {
-  border: 1px solid rgb(154, 142, 165);
-  font-size: 2rem;
-  padding: 0.3rem 0;
+.GameBody section {
+  border: 1px solid rgb(51, 153, 65);
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  max-height: 90%;
+  padding: 0.8rem;
+
 }
+
+.sectionPrymary h2 {
+  color: darkcyan;
+  font-size: 2rem;
+  margin-bottom: 1.8rem;
+
+}
+
+.sectionPrymary .buttonTime button {
+  background-color: rgb(245, 245, 246);
+  border: 1px solid darkcyan;
+  border-radius: 0.1rem 0.5rem;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  font-size: 1rem;
+  margin-left: 0.6rem;
+  padding: 0.3rem 0.8rem;
+  transition: 0.2s;
+}
+
+.sectionPrymary .buttonTime button:hover {
+  background-color: darkcyan;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  color: rgb(245, 245, 246);
+}
+
+.GameBody .sectionSecond {
+  border: 1px solid violet;
+}
+
+.GameBody .sectionSecond span {
+  align-self: center;
+  border: 1px solid rgb(153, 121, 204);
+}
+
+.sectionSecond p {
+  align-items: center;
+  border: 1px solid rgb(226, 22, 32);
+  border-radius: 0.2rem;
+  display: flex;
+  margin: 0.2rem 0.2rem 0.3rem;
+  max-width: 80%;
+  padding: 0.2rem;
+}
+
+.sectionSecond aside {
+
+  /* background-color: darkcyan; */
+
+  /* border: 1px solid rgb(199, 188, 29); */
+  border-radius: 0.3rem;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  font-weight: 700;
+
+  /* color: aliceblue; */
+  margin: 0.3rem 0 0.6rem;
+  max-width: 95%;
+  opacity: 0.9;
+  padding: 0.2rem;
+}
+
+
+/* .GameBody .sectionSecond span {
+  bottom: 120px;
+  color: rebeccapurple;
+  left: 80px;
+  position: fixed;
+}
+
+
+@media screen and ( max-width : 768px ) {
+
+  .GameBody .sectionSecond span {
+    bottom: 120px;
+    color: rebeccapurple;
+    left: 80px;
+    position: fixed;
+  }
+} */
