@@ -8,7 +8,6 @@ const INITIAL_STATE = {
 export const TIMER_ACTION = 'TIMER_ACTION';
 
 const timer = (state = INITIAL_STATE, { type, data }) => {
-  console.log(state);
   switch (type) {
   case TIMER_ACTION:
     return {
