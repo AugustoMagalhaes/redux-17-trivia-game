@@ -1,5 +1,5 @@
 import React from 'react';
-import '../styles/NotFound.css';
+// import '../styles/NotFound.css';
 import { CgSearchFound } from 'react-icons/cg';
 
 export default class NotFound extends React.Component {
