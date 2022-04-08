@@ -1,17 +1,25 @@
+* {
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  margin: 0;
+  outline: none;
+  padding: 0;
+}
+
 .Game {
   align-items: center;
-  border: 1px solid yellow;
   box-shadow: 0.2rem 0.3rem 0.8rem 0.2rem rgb(39, 39, 39);
   display: flex;
   height: 100vh;
   justify-content: space-between;
   padding: 0 0.8rem;
-  width: 100%;
 }
 
 .Game .GameHeader {
+  align-content: center;
   border: 1px solid red;
-  height: 200px;
+  flex-direction: column-reverse;
+  height: 400px;
+  justify-content: space-between;
   width: 300px;
 }
 
@@ -19,61 +27,91 @@
   color: aliceblue;
 }
 
-.Game .GameHeader .GameHeader-score {
-  font-size: 1.5em;
-  font-weight: 900;
-}
-
 .Game .GameBody {
   background-color: rgba(0, 0, 0, 0.9);
-  border: 1px solid red;
   border-radius: 0.8rem;
   box-shadow: 0.2rem 0.3rem 0.8rem 0.2rem rgb(39, 39, 39);
   height: 500px;
-  margin: 3rem auto;
-  padding: 1rem;
   width: 500px;
 }
 
-.Game .GameBody section {
-  align-items: center;
-  border: 1px solid red;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
+.Game .GameBody .sectionPrymary {
   max-height: 90%;
+  padding: 1.3rem;
 }
 
 .Game .GameBody div h2 {
-  color: var(--color-dark-pry);
+  color: darkcyan;
   font-size: 2.2rem;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-.Game .GameBody aside {
+.Game .GameBody .sectionSecond {
   align-items: center;
-  border: 1px solid violet;
-  color: aliceblue;
-  margin: 0.2rem auto;
-  max-width: 90%;
+  border: 1px solid rgb(60, 180, 49);
+  display: flex;
+  flex-direction: column;
+  margin: 0.3rem;
 }
 
-.Game .GameBody span {
+.Game .GameBody .sectionSecond span {
+  border: 1px solid salmon;
   color: aliceblue;
+  font-size: 1.2rem;
+  margin: 0.3rem 0 0.5rem;
 }
 
-.Game .GameBody p {
-  background-color: aliceblue;
+.Game .GameBody section p {
+  background-color: darkcyan;
   border-radius: 0.2rem;
   box-shadow: 1px 1px 1px 1px darkcyan;
-  color: darkcyan;
-  margin: 0;
+  color: aliceblue;
+  margin: 0.3rem 0;
+  padding: 0.3rem;
 }
 
-.Game .GameBody button {
+.Game .GameBody section aside {
   align-items: center;
-  border: 1px solid rgb(0, 255, 191);
+  border: 1px solid rgb(236, 230, 236);
+  border-radius: 0.5rem 0.3rem;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  color: aliceblue;
+  font-size: 1.2rem;
+  margin: 0.3rem auto 0.9rem;
+  max-width: 90%;
+  padding: 0.5rem;
+}
+
+.Game .GameBody section div {
+  border: 1px solid rgb(17, 0, 255);
+}
+
+.Game .GameBody .questOptions {
+  border: 1px solid rgb(17, 859, 255);
+  border-radius: 0.3rem;
+  color: aliceblue;
+  font-size: 1.1rem;
+  margin-bottom: 0.5rem;
+  padding: 0 0.4rem 0.3rem;
+}
+
+.Game .GameBody div button {
+  background-color: rgb(245, 245, 246);
+  border: none;
+  border-radius: 0.2rem;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
   cursor: pointer;
   flex-wrap: wrap;
+  font-size: 1rem;
+  margin: 0 auto;
+  outline: none;
+  padding: 0.4rem 0.8rem;
+  transition: 0.2s;
+}
+
+.Game .GameBody div button:hover {
+  background-color: darkcyan;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  color: rgb(245, 245, 246);
 }

@@ -1,7 +1,8 @@
 import React from 'react';
 import propTypes from 'prop-types';
 import { connect } from 'react-redux';
-import '../../styles/GameHeader.css';
+// import '../../styles/GameHeader.css';
+import '../../styles/Game.css';
 
 class GameHeader extends React.Component {
   render() {
