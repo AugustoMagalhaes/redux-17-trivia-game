@@ -15,12 +15,43 @@
 }
 
 .Game .GameHeader {
-  align-content: center;
-  border: 1px solid red;
+  align-items: center;
+  background-color: darkcyan;
+  border: 1px solid darkcyan;
+  border-radius: 0.8rem;
+  box-shadow: 0.2rem 0.3rem 0.8rem 0.2rem rgb(37, 37, 37);
+  display: flex;
   flex-direction: column-reverse;
   height: 400px;
   justify-content: space-between;
+  padding: 0.8rem 0;
   width: 300px;
+}
+
+.GameHeader section img {
+  border-radius: 2rem;
+  height: 70px;
+  margin: 0.3rem 0 0;
+  width: 70px;
+}
+
+.GameHeader .containerPerfil h4 {
+  background-color: darkcyan;
+  color: rgb(253, 254, 255);
+  font-size: 1.3rem;
+
+}
+
+.GameHeader .containerPerfil span {
+  background-color: darkcyan;
+  color: aliceblue;
+  font-size: 1rem;
+  margin-left: 0.3rem;
+
+}
+
+.Game .GameHeader span {
+  color: aliceblue;
 }
 
 .Game .GameHeader h2 {
@@ -49,17 +80,20 @@
 
 .Game .GameBody .sectionSecond {
   align-items: center;
-  border: 1px solid rgb(60, 180, 49);
+
+  /* border: 1px solid rgb(60, 180, 49); */
   display: flex;
   flex-direction: column;
   margin: 0.3rem;
 }
 
 .Game .GameBody .sectionSecond span {
-  border: 1px solid salmon;
+  border-radius: 0.5rem 0.3rem;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
   color: aliceblue;
   font-size: 1.2rem;
   margin: 0.3rem 0 0.5rem;
+  padding: 0.3rem;
 }
 
 .Game .GameBody section p {
@@ -73,7 +107,6 @@
 
 .Game .GameBody section aside {
   align-items: center;
-  border: 1px solid rgb(236, 230, 236);
   border-radius: 0.5rem 0.3rem;
   box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
   color: aliceblue;
@@ -83,12 +116,10 @@
   padding: 0.5rem;
 }
 
-.Game .GameBody section div {
-  border: 1px solid rgb(17, 0, 255);
-}
 
 .Game .GameBody .questOptions {
-  border: 1px solid rgb(17, 859, 255);
+
+  /* border: 1px solid rgb(17, 859, 255); */
   border-radius: 0.3rem;
   color: aliceblue;
   font-size: 1.1rem;
@@ -110,8 +141,22 @@
   transition: 0.2s;
 }
 
-.Game .GameBody div button:hover {
+.Game .GameBody .buttonTime button:hover {
   background-color: darkcyan;
   box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
   color: rgb(245, 245, 246);
+}
+
+
+.Game .GameBody .buttonTime button {
+  border: none;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  color: darkcyan;
+  cursor: pointer;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  margin: 0 auto;
+  outline: none;
+  padding: 0.4rem 0.8rem;
+  transition: 0.2s;
 }
