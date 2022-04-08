@@ -12,6 +12,7 @@ class GameHeader extends React.Component {
           {score}
         </span>
         <h2>Trivia</h2>
+
         <section>
           <img
             data-testid="header-profile-picture"

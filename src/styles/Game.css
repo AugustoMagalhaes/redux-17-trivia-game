@@ -1,23 +1,6 @@
-/* :root {
-
-  --color-aliceblue: aliceblue;
-
-  --color-roxo-cle: rgb(153, 121, 204);
-
-  --color-dark-pry: darkcyan;
-}
-
-:root * {
-  font-family: Verdana , Geneva , Tahoma , sans-serif;
-  margin: 0;
-  outline: none;
-  padding: 0;
-}
-
-:root * .Game {
+.Game {
   align-items: center;
   border: 1px solid yellow;
-  border: 1px solid #000;
   box-shadow: 0.2rem 0.3rem 0.8rem 0.2rem rgb(39, 39, 39);
   display: flex;
   height: 100vh;
@@ -26,21 +9,22 @@
   width: 100%;
 }
 
-:root * .Game .GameHeader {
-  height: 500px;
+.Game .GameHeader {
+  border: 1px solid red;
+  height: 200px;
   width: 300px;
 }
 
-:root * .Game .GameHeader h2 {
+.Game .GameHeader h2 {
   color: aliceblue;
 }
 
-:root * .Game .GameHeader .GameHeader-score {
+.Game .GameHeader .GameHeader-score {
   font-size: 1.5em;
-  font-weight: bold;
+  font-weight: 900;
 }
 
-:root * .Game .GameBody {
+.Game .GameBody {
   background-color: rgba(0, 0, 0, 0.9);
   border: 1px solid red;
   border-radius: 0.8rem;
@@ -51,7 +35,7 @@
   width: 500px;
 }
 
-:root * .Game .GameBody section {
+.Game .GameBody section {
   align-items: center;
   border: 1px solid red;
   display: flex;
@@ -60,14 +44,14 @@
   max-height: 90%;
 }
 
-:root * .Game .GameBody div h2 {
+.Game .GameBody div h2 {
   color: var(--color-dark-pry);
   font-size: 2.2rem;
   margin-bottom: 1rem;
   text-align: center;
 }
 
-:root * .Game .GameBody aside {
+.Game .GameBody aside {
   align-items: center;
   border: 1px solid violet;
   color: aliceblue;
@@ -75,11 +59,11 @@
   max-width: 90%;
 }
 
-:root * .Game .GameBody span {
+.Game .GameBody span {
   color: aliceblue;
 }
 
-:root * .Game .GameBody p {
+.Game .GameBody p {
   background-color: aliceblue;
   border-radius: 0.2rem;
   box-shadow: 1px 1px 1px 1px darkcyan;
@@ -87,9 +71,9 @@
   margin: 0;
 }
 
-:root * .Game .GameBody button {
+.Game .GameBody button {
   align-items: center;
   border: 1px solid rgb(0, 255, 191);
   cursor: pointer;
   flex-wrap: wrap;
-} */
+}
