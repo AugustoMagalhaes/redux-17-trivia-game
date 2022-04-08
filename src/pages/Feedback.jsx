@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
+import GameHeader from '../components/Game/GameHeader';
 
 class Feedback extends Component {
   //
@@ -67,6 +68,7 @@ class Feedback extends Component {
     return (
       <>
         <header>
+          <GameHeader />
           <h1>Feedback</h1>
           <h4 data-testid="header-player-name">
             {name}
