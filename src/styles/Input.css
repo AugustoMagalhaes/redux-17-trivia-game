@@ -9,7 +9,9 @@
 
 .InputLabel-text {
   bottom: 7px;
-  color: #1b1b1b;
+
+  /* color: #1b1b1b; */
+  color: darkcyan;
   order: 2;
   pointer-events: none;
   right: 0%;
@@ -40,15 +42,21 @@
 
 .InputLabel-input:focus > .InputLabel {
   animation: inputBar 100ms linear normal;
-  border-bottom: 2px solid #42a5f5;
+
+  /* border-bottom: 2px solid #42a5f5; */
+  border-bottom: 2px solid darkcyan;
 }
 
 .InputLabel-input:focus:not( :placeholder-shown ) {
-  color: #0077c1;
+
+  /* color: #0077c1; */
+  color: darkcyan;
 }
 
-.InputLabel-input:not( :placeholder-shown ) ~ .InputLabel-text {
-  color: #0077c1;
+.InputLabel-input:not( :placeholder-shown ) .InputLabel-text {
+
+  /* color: #0077c1; */
+  color: darkcyan;
 }
 
 @keyframes inputBar {

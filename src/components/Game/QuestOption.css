@@ -34,8 +34,10 @@ para as alternativas incorretas.
 
 .QuestOption.nright.show {
   border: 3px solid red;
+
 }
 
 .QuestOption.right.show {
   border: 3px solid rgb(6, 240, 15);
+
 }

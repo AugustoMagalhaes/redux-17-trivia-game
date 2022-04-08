@@ -26,13 +26,19 @@
   animation: spin 2s linear infinite;
   border: 16px solid rgb(246, 246, 246);
   border-radius: 50%;
-  border-top: 16px solid rgb(10, 118, 79);
+
+  /* Troca de cor defido a armonia da aplicação */
+
+  /* border-top: 16px solid rgb(10, 118, 79); */
+  border-top: 16px solid darkcyan;
   height: 120px;
   width: 120px;
 }
 
 .loading {
-  color: rgb(10, 118, 79);
+
+  /* color: rgb(10, 118, 79); */
+  color: darkcyan;
   font-size: 30px;
   font-weight: 900;
   margin-top: 10px;
