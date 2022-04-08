@@ -1,0 +1,56 @@
+* {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  padding: 0;
+  margin: 0;
+}
+
+section {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background: aliceblue;
+  height: 100vh;
+}
+
+section div {
+  border: 1px solid darkcyan;
+  height: 400px;
+  width: 700px;
+  background-color: rgba(0, 0, 0, 0.9);
+  -webkit-box-shadow: 80px 50px 80px rgba(39, 39, 39, 0.9);
+          box-shadow: 80px 50px 80px rgba(39, 39, 39, 0.9);
+  border-radius: 1rem 0.2rem 1.2rem 0.5rem;
+}
+
+section div h1 {
+  color: darkcyan;
+  text-align: center;
+  font-size: 50px;
+  margin-top: 50px;
+}
+
+section div p {
+  color: darkcyan;
+  text-align: center;
+  font-size: 30px;
+  margin-top: 50px;
+}
+
+section div span {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  color: darkcyan;
+  font-size: 60px;
+  margin-top: 30px;
+}
+/*# sourceMappingURL=NotFound.css.map */

@@ -27,7 +27,9 @@
 
 .Login footer button {
   background: transparent;
-  border: 1px solid #42a5f5;
+
+  /* border: 1px solid #42a5f5; */
+  border: 1px solid darkcyan;
   cursor: pointer;
 }
 
@@ -36,7 +38,9 @@
 }
 
 .Login form button:enabled {
-  background: #42a5f5;
+
+  /* background: #42a5f5; */
+  background: darkcyan;
   color: white;
   cursor: pointer;
   font-size: 13px;

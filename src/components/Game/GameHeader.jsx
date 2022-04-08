@@ -11,8 +11,9 @@ class GameHeader extends React.Component {
       <header className="GameHeader">
         <span data-testid="header-score">
           {score}
+          <p>SCORE</p>
         </span>
-        <h2>Trivia</h2>
+        <h2>Go Trivia</h2>
 
         <section>
           <img
@@ -22,7 +23,7 @@ class GameHeader extends React.Component {
           />
           <div className="containerPerfil">
             {' '}
-            <h4>Hello, </h4>
+            <h4>Hello,</h4>
             {' '}
             <span data-testid="header-player-name">
               {' '}
