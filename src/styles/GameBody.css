@@ -1,11 +1,4 @@
-:root {
-
-  --color-aliceblue: aliceblue;
-
-  --color-roxo-cle: rgb(153, 121, 204);
-}
-
-.GameBody {
+/* .GameBody {
   align-items: center;
   background-color: rgb(245, 245, 246);
   border-radius: 0.8rem;
@@ -16,20 +9,15 @@
   margin: 3rem auto;
   padding: 1rem;
   width: 500px;
-}
+} */
 
-.GameBody .sectionSecond div {
+/* .GameBody .sectionSecond div {
   align-items: center;
-
-  /* border: 1px solid rgb(238, 255, 0); */
   display: flex;
   justify-content: center;
   margin: 0 auto;
   max-height: 90%;
-
-  /* position: fixed; */
-
-}
+} */
 
 /* REVIEW Thiago Comentou */
 
@@ -80,7 +68,7 @@
   align-self: center;
   border: 1px solid rgb(153, 121, 204);
   margin: 0 auto;
-} */
+}
 
 /* .GameBody .sectionSecond p {
   color: var(--color-aliceblue);
