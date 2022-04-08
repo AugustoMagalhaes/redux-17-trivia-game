@@ -35,6 +35,7 @@ class GameBody extends React.Component {
         return acc;
       }, []);
       this.setState({ questionsReduce: questionReduce });
+      console.log(questionReduce);
     });
   }
 
@@ -58,8 +59,7 @@ class GameBody extends React.Component {
 
   setShow = ({ target: { dataset: { testid, difficulty } } }) => {
     const {
-      dispatch, show, timer: { timerID, countdown },
-      user: { player: { score, assertions } },
+      player: { score, assertions }, dispatch, show, timer: { timerID, countdown },
     } = this.props;
     const TEN = 10;
     const THREE = 3;
@@ -183,11 +183,9 @@ GameBody.propTypes = {
   }),
   history: propTypes.shape({ push: propTypes.func }).isRequired,
   dispatch: propTypes.func.isRequired,
-  user: propTypes.shape({
-    player: propTypes.shape({
-      score: propTypes.number,
-      assertions: propTypes.number,
-    }),
+  player: propTypes.shape({
+    score: propTypes.number,
+    assertions: propTypes.number,
   }).isRequired,
 };
 

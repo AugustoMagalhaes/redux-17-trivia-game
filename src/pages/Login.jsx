@@ -120,7 +120,7 @@ class Login extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => (user);
+const mapStateToProps = (state) => (state);
 
 Login.propTypes = {
   history: propTypes.shape({

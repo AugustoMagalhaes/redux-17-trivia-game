@@ -5,7 +5,7 @@ import '../../styles/GameHeader.css';
 
 class GameHeader extends React.Component {
   render() {
-    const { player: { score, name, hashGravatar } } = this.props;
+    const { score, name, hashGravatar } = this.props;
     return (
       <header className="GameHeader">
         <span data-testid="header-score">
@@ -35,12 +35,11 @@ class GameHeader extends React.Component {
   }
 }
 
-const mapStateToProps = ({ user }) => (user);
+const mapStateToProps = ({ player }) => (player);
 
 GameHeader.propTypes = {
-  player: propTypes.shape({ name: propTypes.string,
-    hashGravatar: propTypes.string,
-    score: propTypes.number }).isRequired,
-};
+  name: propTypes.string.isRequired,
+  score: propTypes.number.isRequired,
+  hashGravatar: propTypes.string.isRequired };
 
 export default connect(mapStateToProps)(GameHeader);

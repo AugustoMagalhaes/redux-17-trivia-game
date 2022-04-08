@@ -1,52 +1,66 @@
-* {
-  font-family: Verdana , Geneva , Tahoma , sans-serif;
+:root {
+  --color-aliceblue: aliceblue;
+  --color-roxo-cle: rgb(153, 121, 204);
+  --color-dark-pry: darkcyan;
+}
+:root * {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
   margin: 0;
   outline: none;
   padding: 0;
 }
-
-* .Game {
-  align-items: center;
-  background-color: rgb(68, 68, 253);
-  border: 1px solid black;
+:root * .Game {
+  border: 1px solid yellow;
   display: flex;
-  height: 100vh;
-  justify-content: center;
+  justify-content: space-between;
+  border: 1px solid #000;
+  align-items: center;
   width: 100%;
+  height: 100vh;
+  padding: 0 0.8rem;
+  box-shadow: 0.2rem 0.3rem 0.8rem 0.2rem rgb(39, 39, 39);
 }
-
-* .Game .GameHeader {
-  border: 1px solid red;
+:root * .Game .GameHeader {
   height: 500px;
   width: 300px;
 }
-
-* .Game .GameHeader h2 {
+:root * .Game .GameHeader h2 {
   color: aliceblue;
 }
-
-* .Game .GameHeader .GameHeader-score {
+:root * .Game .GameHeader .GameHeader-score {
   font-size: 1.5em;
-  font-weight: 900;
+  font-weight: bold;
 }
-
-* .Game .GameBody {
+:root * .Game .GameBody {
   background-color: rgba(0, 0, 0, 0.9);
   height: 500px;
 }
-
-* .Game .GameBody h2 {
-  color: aliceblue;
+:root * .Game .GameBody div h2 {
+  color: var(--color-dark-pry);
+  font-size: 2.2rem;
   text-align: center;
+  margin-bottom: 1rem;
 }
-
-* .Game .GameBody span {
+:root * .Game .GameBody aside {
+  color: aliceblue;
+  align-items: center;
+  border: 1px solid violet;
+  margin: 0.2rem auto;
+  max-width: 90%;
+}
+:root * .Game .GameBody span {
   color: aliceblue;
 }
-
-* .Game .GameBody p {
-  background-color: darkcyan;
+:root * .Game .GameBody p {
+  color: darkcyan;
+  background-color: aliceblue;
   border-radius: 0.2rem;
-  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
-  color: aliceblue;
+  box-shadow: 1px 1px 1px 1px darkcyan;
+  margin: 0;
 }
+:root * .Game .GameBody button {
+  align-items: center;
+  border: 1px solid rgb(0, 255, 191);
+  cursor: pointer;
+  flex-wrap: wrap;
+}/*# sourceMappingURL=Game.css.map */

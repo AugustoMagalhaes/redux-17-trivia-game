@@ -125,9 +125,9 @@ class Feedback extends Component {
 }
 
 const mapStateToProps = (state) => ({
-  hashGravatar: state.user.player.hashGravatar,
-  name: state.user.player.name,
-  score: state.user.player.score,
+  hashGravatar: state.player.hashGravatar,
+  name: state.player.name,
+  score: state.player.score,
 });
 
 Feedback.propTypes = {

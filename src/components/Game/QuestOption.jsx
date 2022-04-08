@@ -25,28 +25,24 @@ export default class QuestOption extends Component {
   render() {
     const { body, isRight, index, show, setShow, difficulty } = this.props;
     return (
-      <section className="QuestOptionSection">
-        <div>
-          <button
-            type="button"
-            onClick={ setShow }
-            disabled={ show }
-            className={
-              isRight
-                ? `QuestOption right ${show && 'show'}`
-                : `QuestOption nright ${show && 'show'}`
-            }
-            data-testid={
-              isRight
-                ? 'correct-answer'
-                : `wrong-answer-${index}`
-            }
-            data-difficulty={ difficulty }
-          >
-            { body }
-          </button>
-        </div>
-      </section>
+      <button
+        type="button"
+        onClick={ setShow }
+        disabled={ show }
+        className={
+          isRight
+            ? `QuestOption right ${show && 'show'}`
+            : `QuestOption nright ${show && 'show'}`
+        }
+        data-testid={
+          isRight
+            ? 'correct-answer'
+            : `wrong-answer-${index}`
+        }
+        data-difficulty={ difficulty }
+      >
+        { body }
+      </button>
     );
   }
 }
