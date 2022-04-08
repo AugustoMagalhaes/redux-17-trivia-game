@@ -8,7 +8,7 @@ import { fetchQuestionAPI } from '../../services/api';
 import QuestOption from './QuestOption';
 import TimerRedux from '../TimerRedux';
 import { timerAction, scoreAction } from '../../redux/actions/index';
-import '../../styles/GameBody.css';
+import '../../styles/Game.css';
 // GRUPO 10 É O MELHOR
 class GameBody extends React.Component {
   constructor() {
@@ -122,7 +122,10 @@ class GameBody extends React.Component {
                   {' '}
                   {questionsReduce[questionPosition]?.question}
                 </aside>
-                <div data-testid="answer-options">
+                <div
+                  data-testid="answer-options"
+                  className="questOptions"
+                >
                   Answers:
                   {' '}
                   {questionsReduce[questionPosition]?.answers.map((e, i) => (
