@@ -89,7 +89,7 @@ class GameBody extends React.Component {
   render() {
     const { loading, questionPosition, questionsReduce } = this.state;
     const { timer: { timerActive, show } } = this.props;
-
+    console.log(questionsReduce);
     return (
       <main className="GameBody">
         <section className="sectionPrymary">

@@ -24,7 +24,8 @@ const player = (state = INITIAL_STATE, { type, data }) => {
       score: data.score,
       assertions: data.assertions,
     };
-  default: return state;
+  default:
+    return state;
   }
 };
 
