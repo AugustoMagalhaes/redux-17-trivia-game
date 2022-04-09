@@ -1,18 +1,48 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+
+:root {
+  --dy_in: -100px;
+  --dy_out: 100px;
+  --phrase_width: 400px;
+}
+
+body {
+  overflow: hidden;
+}
+
 .Login {
   align-items: center;
-  background: #eaeaea;
+  background: white;
   display: flex;
-  flex-flow: nowrap column;
+  flex-flow: nowrap row;
   height: 100vh;
-  justify-content: center;
+  justify-content: space-around;
   row-gap: 15px;
   width: 100vw;
+}
+
+.Login-formContainer {
+  width: 40vw;
+  display: flex;
+  flex-flow: nowrap column;
+  row-gap: 15px;
 }
 
 .Login form, .Login footer {
   display: flex;
   flex-flow: nowrap column;
   row-gap: 15px;
+  z-index: 2;
+}
+
+.Login-modelContainer {
+  z-index: 5;
+  height: 100vh;
+  display: flex;
+  flex-flow: nowrap column;
 }
 
 .Login form button, .Login footer button {
@@ -22,7 +52,9 @@
   outline: none;
   padding: 10px;
   transition: 0.4s ease all;
-  width: 150px;
+  font-size: 15px;
+  width: 260px;
+  height: 60px;
 }
 
 .Login footer button {
@@ -55,7 +87,348 @@
   background: #0077c1;
 }
 
-/* #login-name:after {
-  content: 'Tudo deu certo';
+/* NOTE animações dos títulos do textos */
+
+.Login-gameTitle {
+  display: inline-flex;
+}
+
+.Login-gameTitle span {
+  font-family: Rubik Puddles, cursive;
+  font-size: 100px;
+  letter-spacing: .3em;
+  font-weight: 200;
+  color: darkcyan;
   display: block;
+}
+
+.Login-gameTitleT {
+  animation: titleLetterAnimHor .5s ease alternate-reverse infinite;
+}
+.Login-gameTitleR {
+  animation: titleLetterAnimTopBottom .5s ease alternate-reverse infinite;
+}
+.Login-gameTitleI {
+  animation: titleLetterAnimHor .5s ease alternate-reverse infinite;
+}
+.Login-gameTitleV {
+  animation: titleLetterAnimHor .5s ease .3s alternate-reverse infinite;
+}
+.Login-gameTitleA {
+  animation: titleLetterAnimTopBottom .5s ease alternate-reverse infinite;
+}
+
+@keyframes titleLetterAnimTopBottom {
+  to {
+    transform: translateY(-20px);
+  }
+}
+@keyframes titleLetterAnimHor {
+  to {
+    transform: rotateY(-40deg);
+  }
+}
+
+/* NOTE  cubos do background */
+
+@keyframes cube {
+  from {
+      transform: scale(0) rotate(0deg) translate(-50%, -50%);
+      opacity: 1;
+  }
+  to {
+      transform: scale(20) rotate(960deg) translate(-50%, -50%);
+      opacity: 0;
+  }
+}
+
+.Login-cubeBackground {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  margin: 0;
+  padding: 0;
+  /* background: #ffffff; */
+  overflow: hidden;
+}
+.Login-cubeBackground li {
+  position: absolute;
+  top: 80vh;
+  left: 45vw;
+  width: 10px;
+  height: 10px;
+  border: solid 1px #e5e5e5;
+  color: transparent;
+  transform-origin: top left;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  animation: cube 10s ease-in forwards infinite;
+}
+undefined
+.Login-cubeBackground li:nth-child(0) {
+  animation-delay: 0s;
+  left: 31vw;
+  top: 26vh;
+}
+
+.Login-cubeBackground li:nth-child(1) {
+  animation-delay: 2s;
+  left: 4vw;
+  top: 58vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(2) {
+  animation-delay: 4s;
+  left: 83vw;
+  top: 44vh;
+}
+
+.Login-cubeBackground li:nth-child(3) {
+  animation-delay: 6s;
+  left: 92vw;
+  top: 88vh;
+}
+
+.Login-cubeBackground li:nth-child(4) {
+  animation-delay: 8s;
+  left: 65vw;
+  top: 79vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(5) {
+  animation-delay: 10s;
+  left: 30vw;
+  top: 39vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(6) {
+  animation-delay: 12s;
+  left: 93vw;
+  top: 71vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(7) {
+  animation-delay: 14s;
+  left: 88vw;
+  top: 95vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(8) {
+  animation-delay: 16s;
+  left: 61vw;
+  top: 11vh;
+}
+
+.Login-cubeBackground li:nth-child(9) {
+  animation-delay: 18s;
+  left: 79vw;
+  top: 17vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(10) {
+  animation-delay: 20s;
+  left: 96vw;
+  top: 0vh;
+}
+
+.Login-cubeBackground li:nth-child(11) {
+  animation-delay: 22s;
+  left: 11vw;
+  top: 45vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(12) {
+  animation-delay: 24s;
+  left: 72vw;
+  top: 68vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(13) {
+  animation-delay: 26s;
+  left: 76vw;
+  top: 97vh;
+}
+
+.Login-cubeBackground li:nth-child(14) {
+  animation-delay: 28s;
+  left: 26vw;
+  top: 8vh;
+}
+
+.Login-cubeBackground li:nth-child(15) {
+  animation-delay: 30s;
+  left: 49vw;
+  top: 85vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(16) {
+  animation-delay: 32s;
+  left: 9vw;
+  top: 33vh;
+}
+
+.Login-cubeBackground li:nth-child(17) {
+  animation-delay: 34s;
+  left: 23vw;
+  top: 23vh;
+}
+
+.Login-cubeBackground li:nth-child(18) {
+  animation-delay: 36s;
+  left: 0vw;
+  top: 28vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(19) {
+  animation-delay: 38s;
+  left: 35vw;
+  top: 54vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(20) {
+  animation-delay: 40s;
+  left: 72vw;
+  top: 35vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(21) {
+  animation-delay: 42s;
+  left: 46vw;
+  top: 74vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(22) {
+  animation-delay: 44s;
+  left: 38vw;
+  top: 51vh;
+}
+
+.Login-cubeBackground li:nth-child(23) {
+  animation-delay: 46s;
+  left: 14vw;
+  top: 61vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(24) {
+  animation-delay: 48s;
+  left: 52vw;
+  top: 6vh;
+}
+
+.Login-cubeBackground li:nth-child(25) {
+  animation-delay: 50s;
+  left: 57vw;
+  top: 63vh;
+  border-color: #ffffff;
+}
+
+.Login-cubeBackground li:nth-child(26) {
+  animation-delay: 52s;
+  left: 42vw;
+  top: 80vh;
+}
+
+.Login-cubeBackground li:nth-child(27) {
+  animation-delay: 54s;
+  left: 18vw;
+  top: 92vh;
+}
+
+.Login-cubeBackground li:nth-child(28) {
+  animation-delay: 56s;
+  left: 67vw;
+  top: 15vh;
+}
+
+/* NOTE informações das mensagens animadas */
+
+.quote_bio{
+  position: relative;
+  /* border: 2px solid red; */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* .phrase{
+  
 } */
+
+.phrase::after {
+  content: "\201D";
+  font-size: 25pt;
+  opacity: .5;
+  font-family:  'IM Fell English SC', serif;
+}
+.phrase::before {
+  content: "\201C";
+  font-size: 25pt;
+  opacity: .5;
+  font-family:  'IM Fell English SC', serif;
+}
+
+.phrase {
+  font-size: 40px;
+  top: var(--dy_in);
+  width: var(--phrase_width);
+  opacity: 0;
+  line-height: 2em;
+  font-family: Grape Nuts, cursive;
+}
+
+.phrase.phrase0 {
+  animation: control_text 15s linear infinite;
+  /* background-color: blue; */
+
+  transition: 1s all ease;
+  
+  position: absolute;
+}
+
+.phrase.phrase1 {
+  animation: control_text 15s linear infinite;
+  animation-delay: 5s;
+  
+  /* background-color: green; */
+  position: absolute;
+}
+.phrase.phrase2 {
+  animation: control_text 15s linear infinite;
+  animation-delay: 10s;
+  
+  /* background-color: red; */
+  position: absolute;
+}
+
+@keyframes control_text {
+  0% {
+    top: var(--dy_in);
+    opacity: 0;
+    transform: rotateX(45deg);
+  }
+  3.33%, 30.05%{
+    top: 0;
+    opacity: 1;
+    transform: rotateX(0deg);
+  }
+  33.38%, 100%{
+    transform: rotateX(45deg);
+    top: var(--dy_out);
+    opacity: 0;
+  }
+}
