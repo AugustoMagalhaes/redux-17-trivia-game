@@ -14,7 +14,8 @@
   padding: 0 0.8rem;
 }
 
-.Game .GameHeader {
+/* .Game  */
+.GameHeader {
   align-items: center;
   background-color: darkcyan;
   border: 1px solid darkcyan;

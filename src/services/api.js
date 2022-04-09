@@ -14,5 +14,6 @@ export const fetchQuestionAPI = async (token) => {
   const result = await fetch(url)
     .then((res) => res.json())
     .catch((error) => console.log(error.message));
+  console.log(result);
   return result;
 };

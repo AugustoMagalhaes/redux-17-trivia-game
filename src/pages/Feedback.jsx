@@ -3,16 +3,18 @@ import { connect } from 'react-redux';
 import propTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import GameHeader from '../components/Game/GameHeader';
+import { loginAction } from '../redux/actions';
 
 class Feedback extends Component {
-  //
-
-  componentDidMount() {
-    this.generateLocalStorage();
+  constructor() {
+    super();
+    this.state = { hasCalled: false };
   }
 
   playAgain = () => {
-    const { history } = this.props;
+    const { history, player, dispatch } = this.props;
+    player.score = 0;
+    dispatch(loginAction(player));
     history.push('/');
   }
 
@@ -21,50 +23,110 @@ class Feedback extends Component {
     history.push('/ranking');
   }
 
-  generateLocalStorage = () => {
-    const { name, score, hashGravatar } = this.props;
+  appendPlayer = () => {
     const storage = localStorage.getItem('ranking');
-    console.log('parse antes ', JSON.parse(storage));
-    console.log('name ', name);
-    const checkPlayer = storage && JSON.parse(storage)
-      .some((element) => element.name === name);
-    console.log('check ', checkPlayer);
-    if (!checkPlayer) {
-      const picture = `https://www.gravatar.com/avatar/${hashGravatar}`;
-      const rankingObj = {
-        name,
-        score,
-        picture,
-      };
-      const parsedStoragezin = storage && JSON.parse(storage);
-      const rankingList = parsedStoragezin
-        ? [...parsedStoragezin, rankingObj] : [rankingObj];
-      const stringifiedRanking = JSON.stringify(rankingList);
-      console.log('rankingList ', stringifiedRanking);
-      localStorage.setItem('ranking', stringifiedRanking);
+    const parsedStorage = storage && JSON.parse(storage);
+    const playerObj = this.createPlayer();
+    const rankingList = [...parsedStorage, playerObj];
+    const stringifiedRanking = JSON.stringify(rankingList);
+    localStorage.setItem('ranking', stringifiedRanking);
+  }
+
+  handleStorage = () => {
+    const { name } = this.props;
+    const storage = localStorage.getItem('ranking');
+    if (!storage) {
+      const newPlayer = this.createPlayer();
+      const rankingListFirstPlayer = [newPlayer];
+      const stringifiedPlayer = JSON.stringify(rankingListFirstPlayer);
+      localStorage.setItem('ranking', stringifiedPlayer);
     } else {
-      const getStorage = localStorage.getItem('ranking');
-      const oldStorage = JSON.parse(getStorage);
-      const findPlayer = name && oldStorage?.find((element) => element.name === name);
-      console.log('name', name);
-      console.log('oldS ', oldStorage);
-      console.log('findPlayer ', findPlayer);
-      findPlayer.score += score;
-      console.log('olS dps', oldStorage);
-      const stringifiedNewRanking = JSON.stringify(oldStorage);
-      localStorage.setItem('ranking', stringifiedNewRanking);
+      const testeStorage = localStorage.getItem('ranking');
+      const parsedRanking = JSON.parse(testeStorage);
+      const checkPlayer = parsedRanking
+      && parsedRanking.some((element) => element.name === name);
+      if (checkPlayer) {
+        this.incrementScore();
+      } else {
+        this.appendPlayer();
+      }
     }
   }
 
+  incrementScore = () => {
+    const { name, score } = this.props;
+    const storage = localStorage.getItem('ranking');
+    const oldStorage = JSON.parse(storage);
+    const findPlayer = name && oldStorage?.find((element) => element.name === name);
+
+    findPlayer.score += score;
+    const stringifiedNewRanking = JSON.stringify(oldStorage);
+    localStorage.setItem('ranking', stringifiedNewRanking);
+  }
+
+  createFinalInfo = () => {
+    const { name, score, assertions } = this.props;
+    return {
+      [name]: {
+        score,
+        assertions,
+      },
+    };
+  }
+
+  handleFinal = () => {
+    const { name, assertions: newAssertions, score: newScore } = this.props;
+    const final = localStorage.getItem('finalInfo');
+    if (!final) {
+      const infoArray = [this.createFinalInfo()];
+      const newInfo = JSON.stringify(infoArray);
+      localStorage.setItem('finalInfo', newInfo);
+    } else {
+      const parsedFinal = JSON.parse(final);
+      const findPlayerFinal = parsedFinal.find((element) => element[name]);
+      if (findPlayerFinal) {
+        // gambiarra
+        findPlayerFinal[name].score = 0;
+        findPlayerFinal[name].assertions = 0; // end gambiarra
+
+        findPlayerFinal[name].score += newScore;
+        findPlayerFinal[name].assertions += newAssertions;
+
+        const stringifiedFinal = JSON.stringify(parsedFinal);
+        localStorage.setItem('finalInfo', stringifiedFinal);
+      } else {
+        const appendPlayerFinal = this.createFinalInfo();
+        const finalList = [...parsedFinal, appendPlayerFinal];
+        const stringifiedFinal = JSON.stringify(finalList);
+        localStorage.setItem('finalInfo', stringifiedFinal);
+      }
+      this.setState({ hasCalled: true });
+    }
+  }
+
+  createPlayer() {
+    const { name, score, hashGravatar } = this.props;
+    const picture = `https://www.gravatar.com/avatar/${hashGravatar}`;
+    return {
+      name,
+      score,
+      picture,
+    };
+  }
+
   render() {
-    const { hashGravatar, name, score } = this.props;
+    const { hashGravatar, name, score, assertions } = this.props;
+    const { hasCalled } = this.state;
+    if (!hasCalled) {
+      this.handleStorage();
+      this.handleFinal();
+    }
     const profileImgSrc = `https://www.gravatar.com/avatar/${hashGravatar}`;
     const standardComparisor = 3;
-    const dataFromStorage = localStorage.getItem('teste');
-    const parsedData = JSON.parse(dataFromStorage);
-    // precisa implementar a logica do localStorage ainda...Component
-    // a ideia eh ser uma chave "x: {finalScore: number, finalAssertions: number}"
-    console.log('parsed ', parsedData);
+    const dataFromStorage = localStorage.getItem('finalInfo');
+    const parsedData = dataFromStorage && JSON.parse(dataFromStorage);
+    const userRanking = parsedData && parsedData.find((element) => element[name]);
+
     return (
       <>
         <header>
@@ -83,12 +145,11 @@ class Feedback extends Component {
           />
           <p data-testid="header-score">
             Placar Atual:
-            { ' ' /* ' Talvez tenha que tirar o "Placar" do "p" ' */}
             {score}
           </p>
           <p data-testid="feedback-text">
             {
-              score >= standardComparisor ? 'Well Done!' : 'Could be better...'
+              assertions >= standardComparisor ? 'Well Done!' : 'Could be better...'
             }
           </p>
           <button
@@ -105,11 +166,26 @@ class Feedback extends Component {
           <section>
             <section>
               Placar final:
-              <p data-testid="feedback-total-score">{parsedData?.finalScore}</p>
+              {
+                parsedData
+                  ? <p data-testid="feedback-total-score">{userRanking[name]?.score}</p>
+                  : <p> Favor voltar a tela de login </p>
+              }
+
             </section>
             <section>
               Número de perguntas respondidas:
-              <p data-testid="feedback-total-question">{parsedData?.finalAssertions}</p>
+              {
+                parsedData
+                  ? (
+                    <p
+                      data-testid="feedback-total-question"
+                    >
+                      {userRanking[name]?.assertions}
+                    </p>)
+                  : <p> Favor voltar a tela de login </p>
+              }
+
             </section>
             <button
               type="button"
@@ -130,39 +206,27 @@ const mapStateToProps = (state) => ({
   hashGravatar: state.player.hashGravatar,
   name: state.player.name,
   score: state.player.score,
+  assertions: state.player.assertions,
+  player: state.player,
 });
 
 Feedback.propTypes = {
-  hashGravatar: propTypes.string.isRequired,
-  name: propTypes.string.isRequired,
-  score: propTypes.number.isRequired,
+  assertions: propTypes.number.isRequired,
+  hashGravatar: propTypes.string,
+  name: propTypes.string,
+  score: propTypes.number,
   history: propTypes.shape({ push: propTypes.func }).isRequired,
+  player: propTypes.shape({
+    score: propTypes.number,
+    assertions: propTypes.number,
+  }).isRequired,
+  dispatch: propTypes.func.isRequired,
+};
+
+Feedback.defaultProps = {
+  hashGravatar: '',
+  name: 'Por favor, volte a pagina inicial e faça o login',
+  score: 0,
 };
 
 export default withRouter(connect(mapStateToProps)(Feedback));
-
-/*
-{
-  user: {
-    player: {
-      name: '',
-      assertions: '',
-      score: 0,
-      gravatarEmail: '',
-      hashGravatar: ''
-    },
-    ranking: [
-      {
-        name: '',
-        score: 0,
-        picture: ''
-      }
-    ]
-  },
-  token: '',
-  timer: {
-    timerActive: true,
-    resetTimer: false,
-    timerID: 0
-  }
-} */
