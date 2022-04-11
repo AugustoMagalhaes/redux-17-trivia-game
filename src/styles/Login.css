@@ -182,6 +182,12 @@ body {
   width: 10px;
 }
 
+.Login-cubeBackground li:nth-child( 0 ) {
+  animation-delay: 0s;
+  left: 31vw;
+  top: 26vh;
+}
+
 .Login-cubeBackground li:nth-child( 1 ) {
   animation-delay: 2s;
   border-color: white;
@@ -454,9 +460,3 @@ body {
     transform: rotateX(45deg);
   }
 }
-
-/* undefined .Login-cubeBackground li:nth-child( 0 ) {
-  animation-delay: 0s;
-  left: 31vw;
-  top: 26vh;
-} */

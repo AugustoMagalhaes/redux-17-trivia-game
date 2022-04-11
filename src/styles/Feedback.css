@@ -1,0 +1,114 @@
+.mainFeedBack {
+  align-items: center;
+  border: 1px solid blueviolet;
+  display: flex;
+  height: 100vh;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.headerFeedBack {
+  background-color: rgba(0, 0, 0, 0.9);
+  border-radius: 0.8rem;
+  box-shadow: 0.2rem 0.3rem 0.8rem 0.2rem rgb(39, 39, 39);
+  color: aliceblue;
+  height: 300px;
+  padding: 0.3rem;
+  text-align: center;
+  width: 300px;
+}
+
+.headerFeedBack h1 {
+  color: darkcyan;
+  padding: 0.8rem;
+  text-align: center;
+}
+
+.headerFeedBack h4 {
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.headerFeedBack img {
+  border-radius: 2rem;
+  height: 70px;
+  margin: 0.3rem 0 0.4rem;
+  width: 70px;
+
+}
+
+.headerFeedBack p {
+  margin-bottom: 0.4rem;
+}
+
+.headerFeedBack button {
+  background-color: rgba(0, 0, 0, 0.3);
+  border: none;
+  border-radius: 0.5rem 0.3rem;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  color: darkcyan;
+  cursor: pointer;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  margin: 0 auto;
+  outline: none;
+  padding: 0.4rem 1rem;
+  transition: 0.2s;
+}
+
+.headerFeedBack button:hover {
+  background-color: darkcyan;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  color: rgb(245, 245, 246);
+  margin-top: 0.2rem;
+
+}
+
+.sectionFeedBack {
+  align-items: center;
+  background-color: darkcyan;
+  border-radius: 0.8rem;
+  box-shadow: 0.2rem 0.3rem 0.8rem 0.2rem rgb(37 37 37);
+  display: flex;
+  flex-direction: column;
+  height: 250px;
+  justify-content: space-between;
+  padding: 0.8rem 0;
+  text-align: center;
+  width: 232px;
+}
+
+.sectionFeedBack h4 {
+  color: aliceblue;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+}
+
+.sectionSecunFeedBack {
+  color: aliceblue;
+}
+
+.sectionFeedBack .sectionNumbers {
+  color: aliceblue;
+}
+
+
+.buttonFeedBack {
+  border: 0.5rem;
+  border-radius: 0.2rem;
+  color: darkcyan;
+  cursor: pointer;
+  flex-wrap: wrap;
+  font-size: 1rem;
+  margin: 0.5rem 0.3rem 0.2rem 0;
+  padding: 0.4rem 0.8rem;
+  transition: 0.2s;
+}
+
+
+.buttonFeedBack:hover {
+  background-color: darkcyan;
+  box-shadow: 1px 1px 1px 1px rgb(39, 39, 39);
+  color: rgb(245, 245, 246);
+  margin-top: 0.2rem;
+}
