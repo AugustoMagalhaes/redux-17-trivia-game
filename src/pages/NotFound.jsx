@@ -5,7 +5,7 @@ import { CgSearchFound } from 'react-icons/cg';
 export default class NotFound extends React.Component {
   render() {
     return (
-      <section>
+      <section className="notFound">
         <div>
           <h1>
             Página não encontrada!
