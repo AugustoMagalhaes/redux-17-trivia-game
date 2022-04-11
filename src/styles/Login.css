@@ -1,11 +1,17 @@
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap') ;
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap') ;
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap') ;
+
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap') ;
 
 :root {
+
   --dy_in: -100px;
+
   --dy_out: 100px;
+
   --phrase_width: 400px;
 }
 
@@ -25,10 +31,10 @@ body {
 }
 
 .Login-formContainer {
-  width: 40vw;
   display: flex;
   flex-flow: nowrap column;
   row-gap: 15px;
+  width: 40vw;
 }
 
 .Login form, .Login footer {
@@ -39,22 +45,22 @@ body {
 }
 
 .Login-modelContainer {
-  z-index: 5;
-  height: 100vh;
   display: flex;
   flex-flow: nowrap column;
+  height: 100vh;
+  z-index: 5;
 }
 
 .Login form button, .Login footer button {
   align-self: center;
   border: none;
+  font-size: 15px;
+  height: 60px;
   justify-self: center;
   outline: none;
   padding: 10px;
   transition: 0.4s ease all;
-  font-size: 15px;
   width: 260px;
-  height: 60px;
 }
 
 .Login footer button {
@@ -88,42 +94,48 @@ body {
 }
 
 /* NOTE animações dos títulos do textos */
-
 .Login-gameTitle {
   display: inline-flex;
 }
 
 .Login-gameTitle span {
-  font-family: Rubik Puddles, cursive;
-  font-size: 100px;
-  letter-spacing: .3em;
-  font-weight: 200;
   color: darkcyan;
   display: block;
+  font-family: Rubik Puddles , cursive;
+  font-size: 100px;
+  font-weight: 200;
+  letter-spacing: 0.3em;
 }
 
 .Login-gameTitleT {
-  animation: titleLetterAnimHor .5s ease alternate-reverse infinite;
+  animation: titleLetterAnimHor 0.5s ease alternate-reverse infinite;
 }
+
 .Login-gameTitleR {
-  animation: titleLetterAnimTopBottom .5s ease alternate-reverse infinite;
+  animation: titleLetterAnimTopBottom 0.5s ease alternate-reverse infinite;
 }
+
 .Login-gameTitleI {
-  animation: titleLetterAnimHor .5s ease alternate-reverse infinite;
+  animation: titleLetterAnimHor 0.5s ease alternate-reverse infinite;
 }
+
 .Login-gameTitleV {
-  animation: titleLetterAnimHor .5s ease .3s alternate-reverse infinite;
+  animation: titleLetterAnimHor 0.5s ease 0.3s alternate-reverse infinite;
 }
+
 .Login-gameTitleA {
-  animation: titleLetterAnimTopBottom .5s ease alternate-reverse infinite;
+  animation: titleLetterAnimTopBottom 0.5s ease alternate-reverse infinite;
 }
 
 @keyframes titleLetterAnimTopBottom {
+
   to {
     transform: translateY(-20px);
   }
 }
+
 @keyframes titleLetterAnimHor {
+
   to {
     transform: rotateY(-40deg);
   }
@@ -132,303 +144,319 @@ body {
 /* NOTE  cubos do background */
 
 @keyframes cube {
+
   from {
-      transform: scale(0) rotate(0deg) translate(-50%, -50%);
-      opacity: 1;
+    opacity: 1;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
   }
+
   to {
-      transform: scale(20) rotate(960deg) translate(-50%, -50%);
-      opacity: 0;
+    opacity: 0;
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
   }
 }
 
 .Login-cubeBackground {
-  position: fixed;
-  width: 100vw;
   height: 100vh;
-  top: 0;
   left: 0;
   margin: 0;
-  padding: 0;
+
   /* background: #ffffff; */
   overflow: hidden;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
 }
+
 .Login-cubeBackground li {
-  position: absolute;
-  top: 80vh;
-  left: 45vw;
-  width: 10px;
-  height: 10px;
+  animation: cube 10s ease-in forwards infinite;
   border: solid 1px #e5e5e5;
   color: transparent;
-  transform-origin: top left;
+  height: 10px;
+  left: 45vw;
+  position: absolute;
+  top: 80vh;
   transform: scale(0) rotate(0deg) translate(-50%, -50%);
-  animation: cube 10s ease-in forwards infinite;
-}
-undefined
-.Login-cubeBackground li:nth-child(0) {
-  animation-delay: 0s;
-  left: 31vw;
-  top: 26vh;
+  transform-origin: top left;
+  width: 10px;
 }
 
-.Login-cubeBackground li:nth-child(1) {
+.Login-cubeBackground li:nth-child( 1 ) {
   animation-delay: 2s;
+  border-color: white;
   left: 4vw;
   top: 58vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(2) {
+.Login-cubeBackground li:nth-child( 2 ) {
   animation-delay: 4s;
   left: 83vw;
   top: 44vh;
 }
 
-.Login-cubeBackground li:nth-child(3) {
+
+/* .Login-cubeBackground li:nth-child( 2 ) {
+  animation-delay: 4s;
+  left: 83vw;
+  top: 44vh;
+} */
+
+.Login-cubeBackground li:nth-child( 3 ) {
   animation-delay: 6s;
   left: 92vw;
   top: 88vh;
 }
 
-.Login-cubeBackground li:nth-child(4) {
+.Login-cubeBackground li:nth-child( 4 ) {
   animation-delay: 8s;
+  border-color: white;
   left: 65vw;
   top: 79vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(5) {
+.Login-cubeBackground li:nth-child( 5 ) {
   animation-delay: 10s;
+  border-color: white;
   left: 30vw;
   top: 39vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(6) {
+.Login-cubeBackground li:nth-child( 6 ) {
   animation-delay: 12s;
+  border-color: white;
   left: 93vw;
   top: 71vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(7) {
+.Login-cubeBackground li:nth-child( 7 ) {
   animation-delay: 14s;
+  border-color: white;
   left: 88vw;
   top: 95vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(8) {
+.Login-cubeBackground li:nth-child( 8 ) {
   animation-delay: 16s;
   left: 61vw;
   top: 11vh;
 }
 
-.Login-cubeBackground li:nth-child(9) {
+.Login-cubeBackground li:nth-child( 9 ) {
   animation-delay: 18s;
+  border-color: white;
   left: 79vw;
   top: 17vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(10) {
+.Login-cubeBackground li:nth-child( 10 ) {
   animation-delay: 20s;
   left: 96vw;
-  top: 0vh;
+  top: 0;
 }
 
-.Login-cubeBackground li:nth-child(11) {
+.Login-cubeBackground li:nth-child( 11 ) {
   animation-delay: 22s;
+  border-color: white;
   left: 11vw;
   top: 45vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(12) {
+.Login-cubeBackground li:nth-child( 12 ) {
   animation-delay: 24s;
+  border-color: white;
   left: 72vw;
   top: 68vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(13) {
+.Login-cubeBackground li:nth-child( 13 ) {
   animation-delay: 26s;
   left: 76vw;
   top: 97vh;
 }
 
-.Login-cubeBackground li:nth-child(14) {
+.Login-cubeBackground li:nth-child( 14 ) {
   animation-delay: 28s;
   left: 26vw;
   top: 8vh;
 }
 
-.Login-cubeBackground li:nth-child(15) {
+.Login-cubeBackground li:nth-child( 15 ) {
   animation-delay: 30s;
+  border-color: white;
   left: 49vw;
   top: 85vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(16) {
+.Login-cubeBackground li:nth-child( 16 ) {
   animation-delay: 32s;
   left: 9vw;
   top: 33vh;
 }
 
-.Login-cubeBackground li:nth-child(17) {
+.Login-cubeBackground li:nth-child( 17 ) {
   animation-delay: 34s;
   left: 23vw;
   top: 23vh;
 }
 
-.Login-cubeBackground li:nth-child(18) {
+.Login-cubeBackground li:nth-child( 18 ) {
   animation-delay: 36s;
-  left: 0vw;
+  border-color: white;
+  left: 0;
   top: 28vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(19) {
+.Login-cubeBackground li:nth-child( 19 ) {
   animation-delay: 38s;
+  border-color: white;
   left: 35vw;
   top: 54vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(20) {
+.Login-cubeBackground li:nth-child( 20 ) {
   animation-delay: 40s;
+  border-color: white;
   left: 72vw;
   top: 35vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(21) {
+.Login-cubeBackground li:nth-child( 21 ) {
   animation-delay: 42s;
+  border-color: white;
   left: 46vw;
   top: 74vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(22) {
+.Login-cubeBackground li:nth-child( 22 ) {
   animation-delay: 44s;
   left: 38vw;
   top: 51vh;
 }
 
-.Login-cubeBackground li:nth-child(23) {
+.Login-cubeBackground li:nth-child( 23 ) {
   animation-delay: 46s;
+  border-color: white;
   left: 14vw;
   top: 61vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(24) {
+.Login-cubeBackground li:nth-child( 24 ) {
   animation-delay: 48s;
   left: 52vw;
   top: 6vh;
 }
 
-.Login-cubeBackground li:nth-child(25) {
+.Login-cubeBackground li:nth-child( 25 ) {
   animation-delay: 50s;
+  border-color: white;
   left: 57vw;
   top: 63vh;
-  border-color: #ffffff;
 }
 
-.Login-cubeBackground li:nth-child(26) {
+.Login-cubeBackground li:nth-child( 26 ) {
   animation-delay: 52s;
   left: 42vw;
   top: 80vh;
 }
 
-.Login-cubeBackground li:nth-child(27) {
+.Login-cubeBackground li:nth-child( 27 ) {
   animation-delay: 54s;
   left: 18vw;
   top: 92vh;
 }
 
-.Login-cubeBackground li:nth-child(28) {
+.Login-cubeBackground li:nth-child( 28 ) {
   animation-delay: 56s;
   left: 67vw;
   top: 15vh;
 }
 
 /* NOTE informações das mensagens animadas */
+.quote_bio {
+  align-items: center;
 
-.quote_bio{
-  position: relative;
   /* border: 2px solid red; */
   display: flex;
-  align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 /* .phrase{
-  
+
 } */
 
-.phrase::after {
-  content: "\201D";
+.phrase:after {
+  content: '\201D';
+  font-family: IM Fell English SC , serif;
   font-size: 25pt;
-  opacity: .5;
-  font-family:  'IM Fell English SC', serif;
+  opacity: 0.5;
 }
-.phrase::before {
-  content: "\201C";
+
+.phrase:before {
+  content: '\201C';
+  font-family: IM Fell English SC , serif;
   font-size: 25pt;
-  opacity: .5;
-  font-family:  'IM Fell English SC', serif;
+  opacity: 0.5;
 }
 
 .phrase {
+  font-family: Grape Nuts , cursive;
   font-size: 40px;
+  line-height: 2em;
+  opacity: 0;
   top: var(--dy_in);
   width: var(--phrase_width);
-  opacity: 0;
-  line-height: 2em;
-  font-family: Grape Nuts, cursive;
 }
 
 .phrase.phrase0 {
   animation: control_text 15s linear infinite;
-  /* background-color: blue; */
-
-  transition: 1s all ease;
-  
   position: absolute;
+
+  /* background-color: blue; */
+  transition: 1s all ease;
 }
 
 .phrase.phrase1 {
   animation: control_text 15s linear infinite;
   animation-delay: 5s;
-  
+
   /* background-color: green; */
   position: absolute;
 }
+
 .phrase.phrase2 {
   animation: control_text 15s linear infinite;
   animation-delay: 10s;
-  
+
   /* background-color: red; */
   position: absolute;
 }
 
+
 @keyframes control_text {
+
   0% {
-    top: var(--dy_in);
     opacity: 0;
+    top: var(--dy_in);
     transform: rotateX(45deg);
   }
-  3.33%, 30.05%{
-    top: 0;
+
+  3.33%, 30.05% {
     opacity: 1;
+    top: 0;
     transform: rotateX(0deg);
   }
-  33.38%, 100%{
-    transform: rotateX(45deg);
-    top: var(--dy_out);
+
+  33.38%, 100% {
     opacity: 0;
+    top: var(--dy_out);
+    transform: rotateX(45deg);
   }
 }
+
+/* undefined .Login-cubeBackground li:nth-child( 0 ) {
+  animation-delay: 0s;
+  left: 31vw;
+  top: 26vh;
+} */
