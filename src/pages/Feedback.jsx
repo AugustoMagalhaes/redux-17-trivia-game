@@ -4,6 +4,7 @@ import propTypes from 'prop-types';
 import { withRouter } from 'react-router-dom';
 import GameHeader from '../components/Game/GameHeader';
 import { loginAction } from '../redux/actions';
+import '../styles/Feedback.css';
 
 class Feedback extends Component {
   constructor() {
@@ -128,9 +129,9 @@ class Feedback extends Component {
     const userRanking = parsedData && parsedData.find((element) => element[name]);
 
     return (
-      <>
-        <header>
-          <GameHeader />
+      <main className="mainFeedBack">
+        <GameHeader />
+        <header className="headerFeedBack">
           <h1>Feedback</h1>
           <h4 data-testid="header-player-name">
             {name}
@@ -145,6 +146,7 @@ class Feedback extends Component {
           />
           <p data-testid="header-score">
             Placar Atual:
+            {' '}
             {score}
           </p>
           <p data-testid="feedback-text">
@@ -161,43 +163,42 @@ class Feedback extends Component {
 
           </button>
         </header>
-        <main>
+        <section className="sectionFeedBack">
           <h4>Informações finais</h4>
-          <section>
-            <section>
-              Placar final:
-              {
-                parsedData
-                  ? <p data-testid="feedback-total-score">{userRanking[name]?.score}</p>
-                  : <p> Favor voltar a tela de login </p>
-              }
+          <section className="sectionSecunFeedBack">
+            Placar final:
+            {
+              parsedData
+                ? <p data-testid="feedback-total-score">{userRanking[name]?.score}</p>
+                : <p> Favor voltar a tela de login </p>
+            }
 
-            </section>
-            <section>
-              Número de perguntas respondidas:
-              {
-                parsedData
-                  ? (
-                    <p
-                      data-testid="feedback-total-question"
-                    >
-                      {userRanking[name]?.assertions}
-                    </p>)
-                  : <p> Favor voltar a tela de login </p>
-              }
-
-            </section>
-            <button
-              type="button"
-              onClick={ this.routeToRanking }
-              data-testid="btn-ranking"
-            >
-              Ranking....
-
-            </button>
           </section>
-        </main>
-      </>
+          <section className="sectionNumbers">
+            Número de perguntas respondidas:
+            {
+              parsedData
+                ? (
+                  <p
+                    data-testid="feedback-total-question"
+                  >
+                    {userRanking[name]?.assertions}
+                  </p>)
+                : <p> Favor voltar a tela de login </p>
+            }
+
+          </section>
+          <button
+            className="buttonFeedBack"
+            type="button"
+            onClick={ this.routeToRanking }
+            data-testid="btn-ranking"
+          >
+            Ranking....
+
+          </button>
+        </section>
+      </main>
     );
   }
 }
