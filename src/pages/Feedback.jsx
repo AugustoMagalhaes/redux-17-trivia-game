@@ -183,7 +183,7 @@ class Feedback extends Component {
                     >
                       {userRanking[name]?.assertions}
                     </p>)
-                  : <p> Favor voltar a tela de login... </p>
+                  : <p> Favor voltar a tela de login </p>
               }
 
             </section>
@@ -192,7 +192,7 @@ class Feedback extends Component {
               onClick={ this.routeToRanking }
               data-testid="btn-ranking"
             >
-              Ranking
+              Ranking.
 
             </button>
           </section>
