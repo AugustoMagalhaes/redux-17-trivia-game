@@ -1,1 +1,103 @@
-/* No CSS */
+/* No Found */
+
+/* Reset da página */
+* {
+  font-family: Verdana , Geneva , Tahoma , sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+.notFound {
+  align-items: center;
+  background: aliceblue;
+  display: flex;
+  height: 100vh;
+  justify-content: center;
+}
+
+.notFound div {
+  background-color: rgba(0, 0, 0, 0.9);
+  border: 1px solid darkcyan;
+  border-radius: 1rem 0.2rem 1.2rem 0.5rem;
+  box-shadow: 80px 50px 80px rgba(39, 39, 39, 0.9);
+  height: 400px;
+  width: 700px;
+}
+
+.notFound div h1 {
+  color: darkcyan;
+  font-size: 50px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.notFound div p {
+  color: darkcyan;
+  font-size: 30px;
+  margin-top: 50px;
+  text-align: center;
+}
+
+.notFound span {
+  color: darkcyan;
+  display: flex;
+  font-size: 60px;
+  justify-content: center;
+  margin-top: 30px;
+}
+
+@media screen and ( max-width : 375px ) {
+
+  .notFound {
+    border: 1px solid darkcyan;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 90%;
+  }
+
+  .notFound div {
+    height: 350px;
+    width: 300px;
+  }
+
+  .notFound div h1 {
+    font-size: 30px;
+  }
+
+  .notFound div p {
+    font-size: 20px;
+  }
+
+  .notFound span {
+    font-size: 40px;
+  }
+}
+
+@media screen and ( max-width : 414px ) {
+
+  .notFound {
+    border: 1px solid darkcyan;
+    box-sizing: border-box;
+    height: 100vh;
+    width: 90%;
+  }
+
+  .notFound div {
+    height: 500px;
+    padding: 0.7rem;
+    width: 350px;
+  }
+
+  .notFound div h1 {
+    font-size: 40px;
+  }
+
+  .notFound div p {
+    font-size: 1.6rem;
+  }
+
+  .notFound span {
+    font-size: 4.5rem;
+  }
+}
+
