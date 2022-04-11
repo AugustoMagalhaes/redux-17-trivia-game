@@ -157,7 +157,7 @@ class Feedback extends Component {
             type="button"
             onClick={ this.playAgain }
           >
-            Jogar novamente
+            Jogar novamente.
 
           </button>
         </header>
