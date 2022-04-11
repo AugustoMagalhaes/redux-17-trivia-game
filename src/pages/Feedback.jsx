@@ -192,7 +192,7 @@ class Feedback extends Component {
               onClick={ this.routeToRanking }
               data-testid="btn-ranking"
             >
-              Ranking
+              Ranking....
 
             </button>
           </section>

@@ -1,28 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Bubbles&display=swap') ;
+
+@import url('https://fonts.googleapis.com/css2?family=Rubik+Puddles&display=swap') ;
+
+@import url('https://fonts.googleapis.com/css2?family=IM+Fell+English+SC&display=swap') ;
+
+@import url('https://fonts.googleapis.com/css2?family=Grape+Nuts&display=swap') ;
+
+:root {
+
+  --dy_in: -100px;
+
+  --dy_out: 100px;
+
+  --phrase_width: 400px;
+}
+
+body {
+  overflow: hidden;
+}
+
 .Login {
   align-items: center;
-  background: #eaeaea;
+  background: white;
   display: flex;
-  flex-flow: nowrap column;
+  flex-flow: nowrap row;
   height: 100vh;
-  justify-content: center;
+  justify-content: space-around;
   row-gap: 15px;
   width: 100vw;
+}
+
+.Login-formContainer {
+  display: flex;
+  flex-flow: nowrap column;
+  row-gap: 15px;
+  width: 40vw;
 }
 
 .Login form, .Login footer {
   display: flex;
   flex-flow: nowrap column;
   row-gap: 15px;
+  z-index: 2;
+}
+
+.Login-modelContainer {
+  display: flex;
+  flex-flow: nowrap column;
+  height: 100vh;
+  z-index: 5;
 }
 
 .Login form button, .Login footer button {
   align-self: center;
   border: none;
+  font-size: 15px;
+  height: 60px;
   justify-self: center;
   outline: none;
   padding: 10px;
   transition: 0.4s ease all;
-  width: 150px;
+  width: 260px;
 }
 
 .Login footer button {
@@ -55,7 +93,370 @@
   background: #0077c1;
 }
 
-/* #login-name:after {
-  content: 'Tudo deu certo';
+/* NOTE animações dos títulos do textos */
+.Login-gameTitle {
+  display: inline-flex;
+}
+
+.Login-gameTitle span {
+  color: darkcyan;
   display: block;
+  font-family: Rubik Puddles , cursive;
+  font-size: 100px;
+  font-weight: 200;
+  letter-spacing: 0.3em;
+}
+
+.Login-gameTitleT {
+  animation: titleLetterAnimHor 0.5s ease alternate-reverse infinite;
+}
+
+.Login-gameTitleR {
+  animation: titleLetterAnimTopBottom 0.5s ease alternate-reverse infinite;
+}
+
+.Login-gameTitleI {
+  animation: titleLetterAnimHor 0.5s ease alternate-reverse infinite;
+}
+
+.Login-gameTitleV {
+  animation: titleLetterAnimHor 0.5s ease 0.3s alternate-reverse infinite;
+}
+
+.Login-gameTitleA {
+  animation: titleLetterAnimTopBottom 0.5s ease alternate-reverse infinite;
+}
+
+@keyframes titleLetterAnimTopBottom {
+
+  to {
+    transform: translateY(-20px);
+  }
+}
+
+@keyframes titleLetterAnimHor {
+
+  to {
+    transform: rotateY(-40deg);
+  }
+}
+
+/* NOTE  cubos do background */
+
+@keyframes cube {
+
+  from {
+    opacity: 1;
+    transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  }
+
+  to {
+    opacity: 0;
+    transform: scale(20) rotate(960deg) translate(-50%, -50%);
+  }
+}
+
+.Login-cubeBackground {
+  height: 100vh;
+  left: 0;
+  margin: 0;
+
+  /* background: #ffffff; */
+  overflow: hidden;
+  padding: 0;
+  position: fixed;
+  top: 0;
+  width: 100vw;
+}
+
+.Login-cubeBackground li {
+  animation: cube 10s ease-in forwards infinite;
+  border: solid 1px #e5e5e5;
+  color: transparent;
+  height: 10px;
+  left: 45vw;
+  position: absolute;
+  top: 80vh;
+  transform: scale(0) rotate(0deg) translate(-50%, -50%);
+  transform-origin: top left;
+  width: 10px;
+}
+
+.Login-cubeBackground li:nth-child( 1 ) {
+  animation-delay: 2s;
+  border-color: white;
+  left: 4vw;
+  top: 58vh;
+}
+
+.Login-cubeBackground li:nth-child( 2 ) {
+  animation-delay: 4s;
+  left: 83vw;
+  top: 44vh;
+}
+
+
+/* .Login-cubeBackground li:nth-child( 2 ) {
+  animation-delay: 4s;
+  left: 83vw;
+  top: 44vh;
+} */
+
+.Login-cubeBackground li:nth-child( 3 ) {
+  animation-delay: 6s;
+  left: 92vw;
+  top: 88vh;
+}
+
+.Login-cubeBackground li:nth-child( 4 ) {
+  animation-delay: 8s;
+  border-color: white;
+  left: 65vw;
+  top: 79vh;
+}
+
+.Login-cubeBackground li:nth-child( 5 ) {
+  animation-delay: 10s;
+  border-color: white;
+  left: 30vw;
+  top: 39vh;
+}
+
+.Login-cubeBackground li:nth-child( 6 ) {
+  animation-delay: 12s;
+  border-color: white;
+  left: 93vw;
+  top: 71vh;
+}
+
+.Login-cubeBackground li:nth-child( 7 ) {
+  animation-delay: 14s;
+  border-color: white;
+  left: 88vw;
+  top: 95vh;
+}
+
+.Login-cubeBackground li:nth-child( 8 ) {
+  animation-delay: 16s;
+  left: 61vw;
+  top: 11vh;
+}
+
+.Login-cubeBackground li:nth-child( 9 ) {
+  animation-delay: 18s;
+  border-color: white;
+  left: 79vw;
+  top: 17vh;
+}
+
+.Login-cubeBackground li:nth-child( 10 ) {
+  animation-delay: 20s;
+  left: 96vw;
+  top: 0;
+}
+
+.Login-cubeBackground li:nth-child( 11 ) {
+  animation-delay: 22s;
+  border-color: white;
+  left: 11vw;
+  top: 45vh;
+}
+
+.Login-cubeBackground li:nth-child( 12 ) {
+  animation-delay: 24s;
+  border-color: white;
+  left: 72vw;
+  top: 68vh;
+}
+
+.Login-cubeBackground li:nth-child( 13 ) {
+  animation-delay: 26s;
+  left: 76vw;
+  top: 97vh;
+}
+
+.Login-cubeBackground li:nth-child( 14 ) {
+  animation-delay: 28s;
+  left: 26vw;
+  top: 8vh;
+}
+
+.Login-cubeBackground li:nth-child( 15 ) {
+  animation-delay: 30s;
+  border-color: white;
+  left: 49vw;
+  top: 85vh;
+}
+
+.Login-cubeBackground li:nth-child( 16 ) {
+  animation-delay: 32s;
+  left: 9vw;
+  top: 33vh;
+}
+
+.Login-cubeBackground li:nth-child( 17 ) {
+  animation-delay: 34s;
+  left: 23vw;
+  top: 23vh;
+}
+
+.Login-cubeBackground li:nth-child( 18 ) {
+  animation-delay: 36s;
+  border-color: white;
+  left: 0;
+  top: 28vh;
+}
+
+.Login-cubeBackground li:nth-child( 19 ) {
+  animation-delay: 38s;
+  border-color: white;
+  left: 35vw;
+  top: 54vh;
+}
+
+.Login-cubeBackground li:nth-child( 20 ) {
+  animation-delay: 40s;
+  border-color: white;
+  left: 72vw;
+  top: 35vh;
+}
+
+.Login-cubeBackground li:nth-child( 21 ) {
+  animation-delay: 42s;
+  border-color: white;
+  left: 46vw;
+  top: 74vh;
+}
+
+.Login-cubeBackground li:nth-child( 22 ) {
+  animation-delay: 44s;
+  left: 38vw;
+  top: 51vh;
+}
+
+.Login-cubeBackground li:nth-child( 23 ) {
+  animation-delay: 46s;
+  border-color: white;
+  left: 14vw;
+  top: 61vh;
+}
+
+.Login-cubeBackground li:nth-child( 24 ) {
+  animation-delay: 48s;
+  left: 52vw;
+  top: 6vh;
+}
+
+.Login-cubeBackground li:nth-child( 25 ) {
+  animation-delay: 50s;
+  border-color: white;
+  left: 57vw;
+  top: 63vh;
+}
+
+.Login-cubeBackground li:nth-child( 26 ) {
+  animation-delay: 52s;
+  left: 42vw;
+  top: 80vh;
+}
+
+.Login-cubeBackground li:nth-child( 27 ) {
+  animation-delay: 54s;
+  left: 18vw;
+  top: 92vh;
+}
+
+.Login-cubeBackground li:nth-child( 28 ) {
+  animation-delay: 56s;
+  left: 67vw;
+  top: 15vh;
+}
+
+/* NOTE informações das mensagens animadas */
+.quote_bio {
+  align-items: center;
+
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  position: relative;
+}
+
+/* .phrase{
+
+} */
+
+.phrase:after {
+  content: '\201D';
+  font-family: IM Fell English SC , serif;
+  font-size: 25pt;
+  opacity: 0.5;
+}
+
+.phrase:before {
+  content: '\201C';
+  font-family: IM Fell English SC , serif;
+  font-size: 25pt;
+  opacity: 0.5;
+}
+
+.phrase {
+  font-family: Grape Nuts , cursive;
+  font-size: 40px;
+  line-height: 2em;
+  opacity: 0;
+  top: var(--dy_in);
+  width: var(--phrase_width);
+}
+
+.phrase.phrase0 {
+  animation: control_text 15s linear infinite;
+  position: absolute;
+
+  /* background-color: blue; */
+  transition: 1s all ease;
+}
+
+.phrase.phrase1 {
+  animation: control_text 15s linear infinite;
+  animation-delay: 5s;
+
+  /* background-color: green; */
+  position: absolute;
+}
+
+.phrase.phrase2 {
+  animation: control_text 15s linear infinite;
+  animation-delay: 10s;
+
+  /* background-color: red; */
+  position: absolute;
+}
+
+
+@keyframes control_text {
+
+  0% {
+    opacity: 0;
+    top: var(--dy_in);
+    transform: rotateX(45deg);
+  }
+
+  3.33%, 30.05% {
+    opacity: 1;
+    top: 0;
+    transform: rotateX(0deg);
+  }
+
+  33.38%, 100% {
+    opacity: 0;
+    top: var(--dy_out);
+    transform: rotateX(45deg);
+  }
+}
+
+/* undefined .Login-cubeBackground li:nth-child( 0 ) {
+  animation-delay: 0s;
+  left: 31vw;
+  top: 26vh;
 } */

@@ -1,10 +1,19 @@
-.InputLabel {align-items: flex-end;
+:root {
+
+  --fontSize: 15px;
+
+  --fontSizeLabel: 20px;
+}
+
+.InputLabel {
+  align-items: flex-end;
 
   /* background-color: green */
-  border-bottom: 2px solid #1b1b1b;
+  border-bottom: 2px solid #666;
   column-gap: 5px;
   display: flex;
   flex-flow: row nowrap;
+  font-size: var(--fontSize);
 }
 
 .InputLabel-text {
@@ -12,6 +21,7 @@
 
   /* color: #1b1b1b; */
   color: darkcyan;
+  font-size: var(--fontSizeLabel);
   order: 2;
   pointer-events: none;
   right: 0%;
@@ -19,14 +29,19 @@
 
 .InputLabel-input {
   background: transparent;
+
+  /* background: green; */
   border: none;
+  font-size: var(--fontSize);
+  height: 40px;
   outline: none;
-  padding: 10px 10px 10px 5px;
+  padding: 10px 10px 0 5px;
   padding-right: 30%;
   width: 75%;
 }
 
 .InputLabel-input::placeholder {
+  font-size: var(--fontSize);
   transition: 0.1s ease all;
 }
 
