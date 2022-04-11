@@ -157,7 +157,7 @@ class Feedback extends Component {
             type="button"
             onClick={ this.playAgain }
           >
-            Jogar novamente.
+            Jogar novamente
 
           </button>
         </header>
@@ -183,7 +183,7 @@ class Feedback extends Component {
                     >
                       {userRanking[name]?.assertions}
                     </p>)
-                  : <p> Favor voltar a tela de login </p>
+                  : <p> Favor voltar a tela de login... </p>
               }
 
             </section>
