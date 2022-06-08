@@ -26,7 +26,7 @@ class Ranking extends Component {
             Ranking
           </h1>
         </header>
-        <main>
+        <main className="ranking-main">
 
           {
             sortedList.map((item, index) => (

@@ -2,7 +2,7 @@
   text-align: center;
 }
 
-main {
+.ranking-main {
   align-items: center;
   display: flex;
   flex-flow: column nowrap;
@@ -32,7 +32,7 @@ main {
 }
 
 .go-home {
-  background-color: blue;
+  background-color: darkcyan;
   border: none;
   border-radius: 10px;
   color: white;
