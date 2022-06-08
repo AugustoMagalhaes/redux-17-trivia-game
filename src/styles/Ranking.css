@@ -1,0 +1,43 @@
+.ranking-title {
+  text-align: center;
+}
+
+main {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+}
+
+.info-container {
+  align-items: center;
+  display: flex;
+  flex-flow: column nowrap;
+  margin: 10px;
+  padding: 5px 10px 10px;
+}
+
+.player-name {
+  font-size: 22px;
+  text-decoration: underline;
+}
+
+.player-score {
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.player-img {
+  height: 80px;
+  width: 80px;
+}
+
+.go-home {
+  background-color: blue;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  font-size: 18px;
+  margin-top: 10px;
+  padding: 5px 0;
+  width: 10%;
+}
